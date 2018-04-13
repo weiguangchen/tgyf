@@ -1,0 +1,204 @@
+
+/*点赞图标放大动画开始*/
+@keyframes myfirst
+{
+    0%{
+        width:40px;
+        height:40px;
+    }
+    50%{
+        width:50px;
+        height:50px;
+    }
+    100% {
+        width:40px;
+        height:40px;
+    }
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0%{
+        width:40px;
+        height:40px;
+    }
+    50%{
+        width:50px;
+        height:50px;
+    }
+    100% {
+        width:40px;
+        height:40px;
+    }
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+    0%{
+        width:40px;
+        height:40px;
+    }
+    50%{
+        width:50px;
+        height:50px;
+    }
+    100% {
+        width:40px;
+        height:40px;
+    }
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    0%{
+        width:40px;
+        height:40px;
+    }
+    50%{
+        width:50px;
+        height:50px;
+    }
+    100% {
+        width:40px;
+        height:40px;
+    }
+}
+/*点赞图标放大动画结束*/
+/*点赞数量加减动画开始*/
+@keyframes mypraise
+{
+    0%{
+        top:-15px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+    25%{
+        top:-20px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    50%{
+        top:-25px;
+        opacity: 1;
+        filter: Alpha(opacity=100);
+        -moz-opacity:1;
+    }
+    75%{
+        top:-30px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    100% {
+        top:-35px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+}
+
+@-moz-keyframes mypraise /* Firefox */
+{
+    0%{
+        top:-15px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+    25%{
+        top:-20px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    50%{
+        top:-25px;
+        opacity: 1;
+        filter: Alpha(opacity=100);
+        -moz-opacity:1;
+    }
+    75%{
+        top:-30px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    100% {
+        top:-35px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+}
+
+@-webkit-keyframes mypraise /* Safari 和 Chrome */
+{
+    0%{
+        top:-15px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+    25%{
+        top:-20px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    50%{
+        top:-25px;
+        opacity: 1;
+        filter: Alpha(opacity=100);
+        -moz-opacity:1;
+    }
+    75%{
+        top:-30px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    100% {
+        top:-35px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+}
+
+@-o-keyframes mypraise /* Opera */
+{
+    0%{
+        top:-15px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+    25%{
+        top:-20px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    50%{
+        top:-25px;
+        opacity: 1;
+        filter: Alpha(opacity=100);
+        -moz-opacity:1;
+    }
+    75%{
+        top:-30px;
+        opacity: 0.5;
+        filter: Alpha(opacity=50);
+        -moz-opacity:0.5;
+    }
+    100% {
+        top:-35px;
+        opacity: 0;
+        filter: Alpha(opacity=0);
+        -moz-opacity:0;
+    }
+}
+/*点赞数量加减动画结束*/
+/*动态点赞结束*/

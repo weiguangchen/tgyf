@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>产品分类</title>
+
+		<link rel="stylesheet" type="text/css" href="../css/fm.css">
+		<!--组件依赖js end-->
+		<script src="../js/rem.js"></script>
+
+		<style>
+			header {
+				width: 100%;
+				height: 1.4rem;
+				overflow: hidden;
+				white-space: nowrap;
+				overflow-x: scroll;
+				background: #000000;
+				color: #FFFFFF;
+				padding-top: 20px;
+			}
+			
+			header::-webkit-scrollbar {
+				display: none;
+			}
+			
+			.col-l {
+				color: red;
+			}
+			
+			.nav {
+				display: inline-block;
+				margin-left: 15px;
+				margin-right: 10px;
+				font-size: .28rem;
+				margin-top: 40px;
+			}
+			
+			.leftImage {
+				margin-top: 10px;
+				width: 45%;
+				margin-left: 10px;
+				float: left;
+				border: 2px solid #FFFFFF;
+			}
+			
+			.rightImage {
+				margin-top: 10px;
+				width: 45%;
+				margin-right: 10px;
+				float: right;
+				border: 2px solid #FFFFFF;
+			}
+			
+			.ss_1 {
+				width: 100%;
+				height: 1.2rem;
+				background: #FFFFFF;
+				position: absolute;
+				top: .85rem;
+				z-index: 9999999999999;
+				display: none;
+			}
+			
+			.kl {
+				width: 90%;
+				margin: 0 auto;
+			}
+			
+			.kl input {
+				width: 80%;
+				height: .7rem;
+				border: none;
+				outline: none;
+				float: left;
+				margin-top: .25rem;
+				background: #E1E1E1;
+				float: left;
+				border: none;
+				outline: none;
+				border-radius: 5px 0 0 5px;
+				text-align: center;
+			}
+			
+			.kl button {
+				width: 20%;
+				height: .7rem;
+				float: right;
+				border: none;
+				outline: none;
+				margin-top: .25rem;
+				background: #c32126;
+				border-radius: 0 5px 5px 0;
+				color: #FFFFFF;
+				
+			}
+		</style>
+	</head>
+
+	<body style="background: #FFFFFF;">
+		<div class="title" !important;>
+			<div class="fm_left" >
+				<img src="../img/List.png" onclick="mui.openWindow({url:'../index.html',id:'../index.html'});"/>
+			</div>
+			<div class="fm_middle">
+				<P>产品展示</P>
+			</div>
+			<div class="fm_right" style="position: relative;">
+				<img src="../img/ss_1.png" style="width: .45rem;position: absolute; top: -.1rem;right:.2rem;">
+			</div>
+		</div>
+		<header>
+			<div class="nav col-l">
+				球  阀
+			</div>
+			<div class="nav">
+				闸 阀
+			</div>
+			<div class="nav">
+				蝶 阀
+			</div>
+			<div class="nav">
+				截止阀
+			</div>
+			<div class="nav">
+				止回阀
+			</div>
+			<div class="nav">
+				水力控制阀
+			</div>
+			<div class="nav">
+				低压阀
+			</div>
+			<div class="nav">
+				陶瓷阀
+			</div>
+			<div class="nav">
+				脱硫
+			</div>
+			<div class="nav">
+				四氟
+			</div>
+			<div class="nav">
+				冶金
+			</div>
+			<div class="nav">
+				船用
+			</div>
+			<div class="nav">
+				暖通
+			</div>
+			<div class="nav">
+				铜阀
+			</div>
+			<div class="nav">
+				其他
+			</div>
+		</header>
+		<div class="ss_1">
+			<div class="kl">
+				<input type="text" placeholder="">
+				<button>搜索</button>
+			</div>
+		</div>
+
+		<div class="cpfl" >
+			<div class="cpfl_tu" style="margin-top:-.2rem;">
+				<ul>
+					<li>
+						<img src="../img/qf_1.jpg" class="leftImage" onclick="mui.openWindow({url:'../subpage/ub.html',id:'../subpage/ub.html'});" />
+					</li>
+					<li>
+						<img src="../img/qf_2.jpg" class="rightImage" />
+					</li>
+					<li>
+						<img src="../img/qf_3.jpg" class="leftImage" />
+					</li>
+					<li>
+						<img src="../img/qf_4.jpg" class="rightImage" />
+					</li>
+					<li>
+						<img src="../img/qf_5.jpg" class="leftImage" />
+					</li>
+					<li>
+						<img src="../img/qf_6.jpg" class="rightImage" />
+					</li>
+					<li>
+						<img src="../img/qf_7.jpg" class="leftImage" />
+					</li>
+					<li>
+						<img src="../img/qf_8.jpg" class="rightImage" />
+					</li>
+				</ul>
+				<div class="c"></div>
+				<div class="g" style="height: 100px;"></div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".nav").on("click", function(ev) {
+					var moveX = $(this).position().left + $(this).parent().scrollLeft();
+					var pageX = document.documentElement.clientWidth;
+					var blockWidth = $(this).width();
+					console.log(moveX)
+					console.log(pageX);
+					console.log(blockWidth);
+					var left = moveX - (pageX / 2) + (blockWidth / 2);
+					$(this).css("color", "red").siblings().css("color", "#FFFFFF");
+					$("header").scrollLeft(left);
+				})
+				$(".fm_right").click(function() {
+					$(".ss_1").fadeToggle(0)
+				})
+
+			});
+		</script>
+	</body>
+
+</html>

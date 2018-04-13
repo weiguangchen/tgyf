@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" href="../css/imageview.css" />
+		<link rel="stylesheet" href="../css/fm.css" />
+		<script src="../js/rem.js"></script>
+		<style type="text/css">
+			.leftImage {
+				margin-top: 10px;
+				width: 45%;
+				height: 200px;
+				margin-left: 10px;
+				float: left;				
+			}
+			.rightImage {
+				margin-top: 10px;
+				width: 45%;
+				height: 200px;
+				margin-right: 10px;
+				float: right;				
+			}
+		</style>
+
+	</head>
+
+	<body style="overflow-x: hidden;">
+		<div class="title" !important;>
+			<div class="fm_left" onclick="mui.openWindow({url:'../index.html',id:'../index.html'});">
+				<img src="../img/List.png"/>
+			</div>
+			<div class="fm_middle">
+				<P>产品中心</P>
+			</div>
+			<div class="fm_right">
+				
+			</div>
+		</div>
+		<div class="nr">
+		<div class="seek">
+		 	<div class="wzy">
+		 		<img src="../img/List_1.png" />
+		 	</div>
+		 	<div class="sr">
+		 		<input type="text" />
+		 	</div>
+		 </div>	
+		 <div style="text-align: center;">
+		 <button id="seek">搜索</button>
+		 </div>
+		 <div class="mui-content">
+			<ul class="mui-table-view" style="border: none;">
+				<li class="image-li">
+					<img class="leftImage" src="../img/1.jpg" data-preview-src="" data-preview-group="1" />
+					<img class="rightImage" src="../img/1.jpg" data-preview-src="" data-preview-group="1" />
+				</li>
+				<li class="image-li">
+					<img class="leftImage" src="../img/1.jpg" data-preview-src="" data-preview-group="1" />
+					<img class="rightImage" src="../img/1.jpg" data-preview-src="" data-preview-group="1" />
+				</li>
+			</ul>
+		</div>
+		</div>
+		<div id="sucaihuo">             
+		</div>
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/mui.zoom.js"></script>
+	<script src="../js/mui.previewimage.js"></script>
+	<script src="../js/tools.js" ></script>
+	<script>
+		mui.previewImage();	
+		mui.plusReady(function() {
+			getaData();
+		})
+       var nativeWebview, imm, InputMethodManager;
+			var initNativeObjects = function() {
+				if (mui.os.android) {
+					var main = plus.android.runtimeMainActivity();
+					var Context = plus.android.importClass("android.content.Context");
+					InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
+					imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
+				} else {
+					nativeWebview = plus.webview.currentWebview().nativeInstanceObject();
+				}
+			};
+			var showSoftInput = function() {
+				if (mui.os.android) {
+					imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+				} else {
+					nativeWebview.plusCallMethod({
+						"setKeyboardDisplayRequiresUserAction": false
+					});
+				}
+				setTimeout(function() {
+					var inputElem = document.querySelector('input');
+					inputElem.focus();
+					inputElem.parentNode.classList.add('mui-active'); //第一个是search，加上激活样式
+				}, 200);
+			};
+			mui.plusReady(function() {
+				initNativeObjects();
+				showSoftInput();
+			});
+
+	</script>
+	</body>
+
+</html>

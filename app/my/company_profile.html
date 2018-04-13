@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/fm.css" rel="stylesheet" />
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link href="../css/animate.min.css" rel="stylesheet" />
+		<script src="../js/rem.js"></script>
+	</head>
+
+	<body style="background: #FFFFFF;">
+		<div class="title">
+			<div class="fm_left" onclick="mui.openWindow({url:'../index.html',id:'../index.html'});">
+				<img src="../img/List.png" />
+			</div>
+			<div class="fm_middle">
+				<P>企业简介</P>
+			</div>
+			<div class="fm_right">
+
+			</div>
+		</div>
+		<div class="nr">
+			<div class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!--支持循环，需要重复图片节点-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="../img/banner3.png" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="../img/banner.png" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="../img/banner1.png" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="../img/banner3.png" /></a>
+					</div>
+					<!--支持循环，需要重复图片节点-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="../img/banner.png" /></a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div class="qyjs_wenzi swiper-slide">
+				<h4>公司介绍</h4>
+				<p class="wenzi_g">
+					天津市塘沽第一阀门有限公司是一家拥有现代化、科学化、多元化的集阀门生产、研发、销售为一体的发展型企业，阀门的生产、研发、检测、包装、物流等配套设施齐全，设有阀门产品研发中心，生产集控流程中心、产品质量检测中心、智慧物流配送中心、全国营销系统中心等五大机构。公司总部位于天津市东丽区无瑕工业园金航道8号，公司在全国各主要产业城市以全资、控股等形式成立了多个销售、客户服务中心及生产基地等。其中天津滨海航天材料制造有限公司、天津嘉和百亿能源科技有限公司、天津塘沽瓦德斯特阀门有限公司，为总公司旗下全资子公司。主要经营高科技的新型材料陶瓷阀门、管件、特殊精密部件、石灰窑项目设计、工程建设维修、特种阀门制造、及进出口阀门贸易等。 塘阀人对技术、品牌的执着追求和守护、对产品品质的严格把控、对客户负责的优质服务、尊爱至诚的诚信作风以及快捷的物流、交货和售后受到行业协会和各界用户的赞誉。塘阀的董事长/总经理、总工及高级技术人员历年来多次被邀请参加阀门行业标准、国家标准和应用技术规范的编制工作，其中有《GB/T12234-2018 石油、天然气工业用螺柱连接阀盖的钢制闸阀》、《GB/T12232-2005 通用阀门法兰连接铁制闸阀》、《GB/T12226-2005 通用阀门灰铸铁技术条件》、《GB/T12227-2005 通用阀门球墨铸铁技术条件》、《铝合金及不锈钢闸门》、《偏心半球阀》、《给水排水用蝶阀》、《给水排水用直埋式闸阀》等。 “以科技创新为先，产品质量为根、诚信服务为本，为客户创造价值！”是塘阀人一贯坚持的品牌理念！塘阀人秉承节能环保、卫生、安全的产品理念，努力将“塘阀”打造成国际驰名商标、知名品牌；将塘阀打造成技术一流、品牌一流、团队一流、口碑一流、规模一流的专业阀门公司。为塘阀争气，为国争光！ 塘沽第一阀门有限公司一直以“共创共赢”开拓市场。竭诚欢迎国内外领导、专家和各界精英、新老客户到塘阀参观、指导、加盟、合作！携手并进、资源互补、合作共赢、共创价值！
+				</p>
+
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="../js/animatext.min.js"></script>
+		<script>
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		</script>
+		<script type="text/javascript">
+			$(".wenzi_g").animatext({
+				speed: 5
+			});
+		</script>
+	</body>
+
+	</body>
+
+</html>

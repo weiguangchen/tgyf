@@ -1,0 +1,422 @@
+{
+  "my/company_profile.html": {
+    "href": "my/company_profile.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "css/bootstrap.min.css",
+      "css/animate.min.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/animatext.min.js",
+      "img/List.png",
+      "img/banner3.png",
+      "img/banner.png",
+      "img/banner1.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "my/selling.html": {
+    "href": "my/selling.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/new_file.js",
+      "img/List.png",
+      "img/map.png",
+      "img/san.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "subpage/culture.html": {
+    "href": "subpage/culture.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "css/dianz.css",
+      "js/rem.js",
+      "js/mui.js",
+      "js/jquery-3.2.1.min.js",
+      "img/fh.png",
+      "img/tupian.png",
+      "img/xxa.png",
+      "img/img1.png",
+      "img/img2.png",
+      "img/img3.png",
+      "img/banner3.png",
+      "img/banner.png",
+      "img/banner1.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/work.html": {
+    "href": "subpage/work.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/new_file.js",
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "img/fh.png",
+      "img/banner.png",
+      "img/hj.png",
+      "img/img1.png",
+      "img/img2.png",
+      "img/img3.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/leadership.html": {
+    "href": "subpage/leadership.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "img/fh.png",
+      "img/ldgh.png"
+    ],
+    "refer": [
+      "subpage/work.html"
+    ],
+    "priority": 0
+  },
+  "subpage/organization.html": {
+    "href": "subpage/organization.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "css/swiper.css",
+      "js/rem.js",
+      "js/swiper.js",
+      "js/mui.min.js",
+      "img/fh.png",
+      "img/zzjg.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/label.html": {
+    "href": "subpage/label.html",
+    "resources": [
+      "css/swiper.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/swiper.js",
+      "img/fh.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/certificate.html": {
+    "href": "subpage/certificate.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/app.css",
+      "css/imageview.css",
+      "css/fm.css",
+      "css/animate.min.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/mui.previewimage.js",
+      "js/tools.js",
+      "js/new_file.js",
+      "img/fh.png",
+      "img/tupian.png",
+      "img/z_2.png",
+      "img/z_1.png",
+      "img/z_3.png",
+      "img/z_4.png"
+    ],
+    "refer": [
+      "subpage/label.html"
+    ],
+    "priority": 0
+  },
+  "subpage/knowledge.html": {
+    "href": "subpage/knowledge.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "img/fh.png",
+      "img/1.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/league.html": {
+    "href": "subpage/league.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/app.css",
+      "css/imageview.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "img/fh.png",
+      "img/xx.png",
+      "img/1.jpg",
+      "img/tupian.png",
+      "img/al.png",
+      "img/zs.png",
+      "img/gzh.png",
+      "img/phone_2.png",
+      "img/kf.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/information.html": {
+    "href": "subpage/information.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "img/fh.png",
+      "img/xx.png",
+      "img/60x60.gif"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/personal.html": {
+    "href": "subpage/personal.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/app.css",
+      "css/fm.css",
+      "css/ydui.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/ydui.js",
+      "img/fh.png",
+      "img/1.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "subpage/sale.html": {
+    "href": "subpage/sale.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "img/fh.png",
+      "img/1.jpg",
+      "img/gs.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "my/regard.html": {
+    "href": "my/regard.html",
+    "resources": [
+      "css/swiper.css",
+      "css/fm.css",
+      "css/mui.min.css",
+      "js/rem.js",
+      "js/swiper.js",
+      "js/mui.min.js",
+      "img/1.jpg",
+      "img/cpl.png",
+      "img/User.png",
+      "img/Users.png",
+      "img/Location.png",
+      "img/Calendar.png",
+      "img/Dashboard.png"
+    ],
+    "refer": [
+      "subpage/culture.html",
+      "subpage/leadership.html",
+      "subpage/work.html",
+      "subpage/organization.html",
+      "subpage/certificate.html",
+      "subpage/knowledge.html",
+      "index.html",
+      "subpage/league.html",
+      "subpage/information.html",
+      "subpage/personal.html",
+      "subpage/sale.html"
+    ],
+    "priority": 0
+  },
+  "my/map.html": {
+    "href": "my/map.html",
+    "resources": [
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "img/List.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "my/serve.html": {
+    "href": "my/serve.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/new_file.js",
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "img/List.png",
+      "img/xx.png",
+      "img/khfw.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "my/talents.html": {
+    "href": "my/talents.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "css/app.css",
+      "css/mui.picker.min.css",
+      "css/mui.poppicker.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/new_file.js",
+      "js/mui.picker.min.js",
+      "js/mui.poppicker.js",
+      "img/List.png",
+      "img/dd.png",
+      "img/phone.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "my/new.html": {
+    "href": "my/new.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.min.js",
+      "js/new_file.js",
+      "img/List.png",
+      "img/new_1.png",
+      "img/new_2.png",
+      "img/new_3.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "subpage/ub.html": {
+    "href": "subpage/ub.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "img/qf_t.png",
+      "img/qf_t1.png",
+      "img/fh.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "my/classify.html": {
+    "href": "my/classify.html",
+    "resources": [
+      "css/navigator.iscroll.css",
+      "css/navigator.default.css",
+      "css/navigator.iscroll.default.css",
+      "css/fm.css",
+      "js/rem.js",
+      "js/mui.min.js",
+      "js/zepto.js",
+      "js/zepto.extend.js",
+      "js/zepto.ui.js",
+      "js/zepto.iscroll.js",
+      "js/navigator.js",
+      "js/navigator.iscroll.js",
+      "img/List.png",
+      "img/qf_1.jpg",
+      "img/qf_2.jpg"
+    ],
+    "refer": [
+      "index.html",
+      "subpage/ub.html"
+    ],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "js/mui.js",
+      "js/jquery-3.2.1.min.js",
+      "js/rem.js",
+      "css/mui.css",
+      "css/fm.css",
+      "img/jc.png",
+      "img/xx.png",
+      "img/logo.png",
+      "img/Presentation.png",
+      "img/Home.png",
+      "img/Location.png",
+      "img/Comment.png",
+      "img/Users.png",
+      "img/Calendar.png",
+      "img/shipin.png"
+    ],
+    "refer": [
+      "my/company_profile.html",
+      "my/selling.html",
+      "my/regard.html",
+      "my/map.html",
+      "my/serve.html",
+      "my/talents.html",
+      "my/new.html",
+      "my/classify.html"
+    ],
+    "priority": 0
+  },
+  "guide.html": {
+    "href": "guide.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "img/yd_1.png",
+      "img/yd_2.png"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  }
+}

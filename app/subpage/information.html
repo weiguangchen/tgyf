@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/fm.css" rel="stylesheet" />
+		<script src="../js/rem.js"></script>
+		<style>
+			.mui-table-view-cell{
+				border-top:none ;
+				border-bottom:1px solid #EEEEEE;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="title">
+			<div class="fm_left mui-action-back mui-pull-left">
+				<img src="../img/fh.png" />
+			</div>
+			<div class="fm_middle">
+				<P>消息中心</P>
+			</div>
+			<div class="fm_right">
+				<img src="../img/ss_1.png">
+			</div>
+		</div>
+		<div class="nr">
+			<ul class="tab">
+				<li class="cur">系统消息</li>
+				<li>我的消息</li>
+			</ul>
+			<div class="on cop">
+				<div class="mui-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../img/60x60.gif">
+								<div class="mui-media-body">
+									阀门
+									<p class='mui-ellipsis'>本厂保证投标设备用合理的工艺和合格的材料制造而成，并符合标书、合同规定的质量、规格和性能要求。保证阀门设备经正确安装、正常运行和保养，在其使用寿命内具有满意的性能。设备制造完成后，我公司对设备质量、性能要求按合同规定进行详细而全面的检查，质量达到要</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../img/60x60.gif">
+								<div class="mui-media-body">
+									阀门
+									<p class='mui-ellipsis'>本厂保证投标设备用合理的工艺和合格的材料制造而成，并符合标书、合同规定的质量、规格和性能要求。保证阀门设备经正确安装、正常运行和保养，在其使用寿命内具有满意的性能。设备制造完成后，我公司对设备质量、性能要求按合同规定进行详细而全面的检查，质量达到要</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<div class="k" style="height: 600px;"></div>
+				</div>
+			</div>
+			<div class="cop">
+				
+				
+			</div>
+		</div>
+		<div id="sucaihuo">
+
+		</div>
+        <script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(function($) {
+				$('.tab li').bind("touchstart", function() {
+					$(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+					$(".cop").hide().eq($(this).index()).show();
+				});
+			})
+		</script>
+	</body>
+
+</html>

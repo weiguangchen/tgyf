@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/fm.css" rel="stylesheet" />
+		<script src="../js/rem.js"></script>
+	</head>
+
+	<body style="background: #FFFFFF;">
+		<div class="title">
+			<div class="fm_left mui-action-back mui-pull-left">
+				<img src="../img/fh.png" />
+			</div>
+			<div class="fm_middle">
+				<P>销售网络</P>
+			</div>
+			<div class="fm_right">
+
+			</div>
+		</div>
+		<div class="nr">
+			<div class="bg_s">
+				<ul class="tab1 ">
+					<li class="cur">国内区域</li>
+					<li>国际区域</li>
+				</ul>
+			</div>
+			<div class="on cop1">
+				<img src="../img/map.png" />
+				<div class="sjnmb">
+					<div class="s_wen_zi">
+						<P>国内区域</P>
+					</div>					                    
+                <img src="../img/san.png" id="san"/>    
+				</div>
+				<div class="ncsjd"></div>
+			</div>
+			<div class="cop1">
+				2
+			</div>
+		</div>
+		<div id="sucaihuo">
+
+		</div>
+         <script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="../js/new_file.js"></script>
+		<script>
+			$(function() {
+				$('#sucaihuo').simplerSidebar({
+					opener: '#toggle-sidebar',
+					sidebar: {
+						align: 'left',
+						width: 260
+					}
+				});
+			});
+			$(function($) {
+				$('.tab1 li').bind("touchstart", function() {
+					$(".tab1 li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+					$(".cop1").hide().eq($(this).index()).show();
+				});
+			})
+			$(function(){
+				$("#san").click(function(){
+					$(".ncsjd").fadeToggle(0);
+				})
+			})
+		</script>
+	</body>
+
+</html>

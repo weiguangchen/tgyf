@@ -1,0 +1,17 @@
+/** 一级导航样式 */
+
+.ui-navigator {
+    width: 100%;
+    height:60px;
+   /* border-bottom:1px solid #c32126;*/
+  opacity: .85;
+}
+.ui-navigator .ui-navigator-list li a, .ui-navigator .ui-navigator-fix{
+    text-decoration: none;
+    font-family: "微软雅黑" "黑体" ;
+    text-align: center;
+    margin:10px 20px 0 5px;
+}
+/*css for pad*/
+
+
