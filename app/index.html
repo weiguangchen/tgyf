@@ -10,7 +10,7 @@
 	<!-- <link rel="stylesheet" href="css/swiper.css"> -->
 	<link rel="stylesheet" href="css/fm.css">
 	<link rel="stylesheet" href="css/mui.min.css">
-	<link rel="stylesheet" href="css/mui_reset.css">
+	<link rel="stylesheet" href="css/css/mui_reset.css">
 	<script src="js/rem.js"></script>
 	<!-- Demo styles -->
 	<style>
@@ -114,7 +114,7 @@
 			color: #44aaff;
 		}
 
-		header {
+		.cp-header {
 			width: 100%;
 			overflow: hidden;
 			white-space: nowrap;
@@ -218,253 +218,6 @@
 </head>
 
 <body>
-	<!-- Swiper -->
-	<!-- <div class="swiper-container">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide menu">
-				<div class="mui-scroll">
-					<div class="userInfo" style="margin-top:.5rem;">
-						<img src="img/1.jpg" class="userImage" id="headImage">
-						<a class="appName">塘沽一阀</a>
-					</div>
-					<div class="cnlx">
-						<div class="hyzx_tu">
-							<img src="img/Shape 246.png" />
-						</div>
-						<div class="hyzx_wenzi" onclick="mui.openWindow({url:'my/selling.html',id:'my/selling.html'});">
-							<P>网络销售</P>
-						</div>
-					</div>
-					<div class="cnlx">
-						<div class="hyzx_tu">
-							<img src="img/Shape 96.png" />
-						</div>
-						<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/personal.html',id:'subpage/personal.html'});">
-							<P>注册登录</P>
-						</div>
-					</div>
-					<div class="cnlx">
-						<div class="hyzx_tu">
-							<img src="img/Shape 137.png" />
-						</div>
-						<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/information.html',id:'subpage/information.html'});">
-							<P>消息中心</P>
-						</div>
-					</div>
-					<div class="cnlx">
-						<div class="hyzx_tu">
-							<img src="img/Shape 110.png" />
-						</div>
-						<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/sale.html',id:'subpage/sale.html'});">
-							<P>售后服务</P>
-						</div>
-					</div>
-					<div class="cnlx" id="gzh">
-						<div class="hyzx_tu">
-							<img src="img/Shape 247.png" />
-						</div>
-						<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/industry.html',id:'subpage/industry.html'});">
-							<P>公众号</P>
-						</div>
-					</div>
-					<div class="cnlx">
-						<div class="hyzx_tu">
-							<img src="img/Shape 343.png" />
-						</div>
-						<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/industry.html',id:'subpage/industry.html'});">
-							<P>行业应用</P>
-						</div>
-					</div>
-					<div class="cnlx" style="margin-bottom: 1rem;">
-						<div class="hyzx_tu">
-							<img src="img/Shape 17.png" />
-						</div>
-						<div class="hyzx_wenzi">
-							<P>更多</P>
-						</div>
-					</div>
-					<div style="width: 5rem;height:1rem;margin: 0 auto;background:#c32126;" id="tuichu">
-						<img src="img/Off.png" style="float: left;width: 10%;margin:.25rem;" />
-						<span style="font-size: .28rem;line-height: 55px;margin-left: 1.2rem;">退出登录</span>
-					</div>
-				</div>
-			</div>
-			<div class="swiper-slide" style="background: #FFFFFF;">
-				<div class="title">
-					<div class="fm_left menu-button">
-						<img src="img/cpl.png" />
-					</div>
-					<div class="fm_middle">
-						<P>塘阀一阀</P>
-					</div>
-					<div class="fm_right" id="dj">
-						<img src="img/jc.png" style="width: .6rem;margin-top: -.1rem;" />
-					</div>
-				</div>
-				<div style="height:100vh;overflow-x: auto;margin-top: 50px;">
-					<div id="wrap">
-						<div id="tit">
-							<span class="select">企业文化</span>
-							<span>产品中心</span>
-							<span>新闻动态</span>
-						</div>
-						<ul id="con">
-							<li class="show">
-								<div class="sy_tu">
-									<div class="wenzi_t" onclick="mui.openWindow({url:'my/company_profile.html',id:'my/company_profile.html'});">
-										<p>企业简介</p>
-										<img src="img/icon.png" />
-									</div>
-								</div>
-								<div class="sy_tu1">
-									<div class="wenzi_t" onclick="mui.openWindow({url:'my/map.html',id:'my/map.html'});">
-										<p>地理位置</p>
-										<img src="img/icon.png" />
-									</div>
-								</div>
-								<div class="sy_tu2">
-									<img src="img/zsjm.png" id="a1" style="width:35%;position: absolute;top:40%;left:.2rem;z-index: 999;" onclick="mui.openWindow({url:'subpage/league.html',id:'subpage/league.html'});"
-									/>
-									<div class="wenzi_t" onclick="mui.openWindow({url:'my/regard.html',id:'my/regard.html'});">
-										<p>关于塘沽一阀</p>
-										<img src="img/icon.png" />
-									</div>
-								</div>
-								<div style="width: 100%;height: 1.5rem;"></div>
-								<div class="sjbg">
-									<div class="sbnkb" id="alertBtn">
-										<img src="img/ds.png" />
-									</div>
-									<div class="sbnkb" id="telephone">
-										<img src="img/phone_2.png" />
-									</div>
-									<div class="sbnkb" style="border-right:none;" onclick="mui.openWindow({url:'subpage/kf.html',id:'subpage/kf.html'});">
-										<img src="img/kf.png" style="width: 25%;" />
-									</div>
-								</div>
-
-							</li>
-							<li>
-
-								<header>
-									<div class="txk">
-										<div class="suo">
-											<img src="img/cz.png" style="width:100%" />
-										</div>
-										<div class="nav">
-											&nbsp;&nbsp;&nbsp;&nbsp;
-										</div>
-										<div class="nav col-l">
-											球 阀
-										</div>
-										<div class="nav">
-											闸 阀
-										</div>
-										<div class="nav">
-											蝶 阀
-										</div>
-										<div class="nav">
-											截止阀
-										</div>
-										<div class="nav">
-											止回阀
-										</div>
-										<div class="nav">
-											水力控制阀
-										</div>
-										<div class="nav">
-											低压阀
-										</div>
-										<div class="nav">
-											陶瓷阀
-										</div>
-										<div class="nav">
-											脱硫
-										</div>
-										<div class="nav">
-											四氟
-										</div>
-										<div class="nav">
-											冶金
-										</div>
-										<div class="nav">
-											船用
-										</div>
-										<div class="nav">
-											暖通
-										</div>
-										<div class="nav">
-											铜阀
-										</div>
-										<div class="nav">
-											其他
-										</div>
-
-									</div>
-								</header>
-
-								<div class="fis_tu" style="width: 95%;height:100vh;margin: .8rem auto;">
-									<div class="ss_1">
-										<div class="kl">
-											<input type="text" placeholder="">
-											<button>搜索</button>
-										</div>
-									</div>
-									<div class="leftimg">
-										<img src="img/qf_1.jpg" onclick="mui.openWindow({url:'subpage/ub.html',id:'subpage/ub.html'});" />
-									</div>
-									<div class="rightimg">
-										<img src="img/qf_2.jpg" />
-									</div>
-									<div class="leftimg">
-										<img src="img/qf_3.jpg" />
-									</div>
-									<div class="rightimg">
-										<img src="img/qf_4.jpg" />
-									</div>
-									<div class="leftimg">
-										<img src="img/qf_5.jpg" />
-									</div>
-									<div class="rightimg">
-										<img src="img/qf_6.jpg" />
-									</div>
-									<div class="leftimg">
-										<img src="img/qf_7.jpg" />
-									</div>
-									<div class="rightimg">
-										<img src="img/qf_8.jpg" />
-									</div>
-								</div>
-
-							</li>
-							<li>
-
-								<div class="new_kuai">
-									<h4>FlowEx国际泵管阀展</h4>
-									<P class="xo"></P>
-								</div>
-								<div class="new_kuai">
-									<h4>列入国家重大技术</h4>
-
-									<P class="xx"></P>
-								</div>
-								<div class="new_kuai">
-									<h4>FlowEx国际泵管阀展</h4>
-									<P class="xox"> </P>
-								</div>
-								<div style="width: 90%;margin: .5rem auto 1rem auto;">
-									<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;">更新</button>
-								</div>
-
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-
 
 	<!-- 侧滑导航根容器 -->
 	<div class="mui-off-canvas-wrap mui-draggable">
@@ -482,7 +235,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 246.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'my/selling.html',id:'my/selling.html'});">
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'my/selling.html',id:'my/selling.html'});" id="menu-wlxs">
 								<P>网络销售</P>
 							</div>
 						</div>
@@ -490,7 +243,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 96.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/personal.html',id:'subpage/personal.html'});">
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/personal.html',id:'subpage/personal.html'});" id="menu-zcdl">
 								<P>注册登录</P>
 							</div>
 						</div>
@@ -498,7 +251,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 137.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/information.html',id:'subpage/information.html'});">
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/information.html',id:'subpage/information.html'});" id="menu-xxzx">
 								<P>消息中心</P>
 							</div>
 						</div>
@@ -506,7 +259,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 110.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/sale.html',id:'subpage/sale.html'});">
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/sale.html',id:'subpage/sale.html'});" id="menu-shfw">
 								<P>售后服务</P>
 							</div>
 						</div>
@@ -514,7 +267,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 247.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/industry.html',id:'subpage/industry.html'});">
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/industry.html',id:'subpage/industry.html'});" id="menu-gzh">
 								<P>公众号</P>
 							</div>
 						</div>
@@ -522,7 +275,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 343.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/industry.html',id:'subpage/industry.html'});">
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/industry.html',id:'subpage/industry.html'});" id="menu-hyyy">
 								<P>行业应用</P>
 							</div>
 						</div>
@@ -530,7 +283,7 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 17.png" />
 							</div>
-							<div class="hyzx_wenzi">
+							<div class="hyzx_wenzi" id="menu-gd">
 								<P>更多</P>
 							</div>
 						</div>
@@ -543,25 +296,25 @@
 			</aside>
 			<!-- 主页面标题 -->
 			<header class="mui-bar mui-bar-nav">
-				<a class="mui-icon mui-action-menu mui-pull-left">
+				<!-- <a class="mui-icon mui-action-menu mui-pull-left">
 					<img src="img/cpl.png" />
 				</a>
 				<h1 class="mui-title">塘阀一阀</h1>
 				<a class="mui-icon mui-action-menu mui-pull-right">
 					<img src="img/jc.png" />
-				</a>
+				</a> -->
 
-				<!-- <div class="title">
-					<div class="fm_left menu-button">
+				<div class="title">
+					<div class="fm_left menu-button" id="mbtn">
 						<img src="img/cpl.png" />
 					</div>
 					<div class="fm_middle">
 						<P>塘阀一阀</P>
 					</div>
 					<div class="fm_right" id="dj">
-						<img src="img/jc.png" style="width: .6rem;margin-top: -.1rem;" />
+						<img src="img/jc.png" />
 					</div>
-				</div> -->
+				</div>
 			</header>
 
 			<!-- 主页面内容容器 -->
@@ -579,27 +332,26 @@
 									<ul id="con">
 										<li class="show">
 											<div class="sy_tu">
-												<div class="wenzi_t" onclick="mui.openWindow({url:'my/company_profile.html',id:'my/company_profile.html'});">
+												<div class="wenzi_t" id="qyjj">
 													<p>企业简介</p>
 													<img src="img/icon.png" />
 												</div>
 											</div>
 											<div class="sy_tu1">
-												<div class="wenzi_t" onclick="mui.openWindow({url:'my/map.html',id:'my/map.html'});">
+												<div class="wenzi_t" id="dlwz">
 													<p>地理位置</p>
 													<img src="img/icon.png" />
 												</div>
 											</div>
 											<div class="sy_tu2">
-												<img src="img/zsjm.png" id="a1" style="width:35%;position: absolute;top:40%;left:.2rem;z-index: 999;" onclick="mui.openWindow({url:'subpage/league.html',id:'subpage/league.html'});"
-												/>
-												<div class="wenzi_t" onclick="mui.openWindow({url:'my/regard.html',id:'my/regard.html'});">
+												<img src="img/zsjm.png" id="a1" style="width:35%;position: absolute;top:40%;left:.2rem;z-index: 999;" />
+												<div class="wenzi_t" id="gytgyf">
 													<p>关于塘沽一阀</p>
 													<img src="img/icon.png" />
 												</div>
 											</div>
 											<div style="width: 100%;height: 1.5rem;"></div>
-											<div class="sjbg">
+											<!-- <div class="sjbg">
 												<div class="sbnkb" id="alertBtn">
 													<img src="img/ds.png" />
 												</div>
@@ -609,66 +361,13 @@
 												<div class="sbnkb" style="border-right:none;" onclick="mui.openWindow({url:'subpage/kf.html',id:'subpage/kf.html'});">
 													<img src="img/kf.png" style="width: 25%;" />
 												</div>
-											</div>
+											</div> -->
 
 										</li>
 										<li>
-											<header>
-												<div class="txk">
-													<div class="suo">
-														<img src="img/cz.png" style="width:100%" />
-													</div>
-													<div class="nav">
-														&nbsp;&nbsp;&nbsp;&nbsp;
-													</div>
-													<div class="nav col-l">
-														球 阀
-													</div>
-													<div class="nav">
-														闸 阀
-													</div>
-													<div class="nav">
-														蝶 阀
-													</div>
-													<div class="nav">
-														截止阀
-													</div>
-													<div class="nav">
-														止回阀
-													</div>
-													<div class="nav">
-														水力控制阀
-													</div>
-													<div class="nav">
-														低压阀
-													</div>
-													<div class="nav">
-														陶瓷阀
-													</div>
-													<div class="nav">
-														脱硫
-													</div>
-													<div class="nav">
-														四氟
-													</div>
-													<div class="nav">
-														冶金
-													</div>
-													<div class="nav">
-														船用
-													</div>
-													<div class="nav">
-														暖通
-													</div>
-													<div class="nav">
-														铜阀
-													</div>
-													<div class="nav">
-														其他
-													</div>
+											<div class="cp-header">
 
-												</div>
-											</header>
+											</div>
 
 											<div class="fis_tu" style="width: 95%;height:100vh;margin: .8rem auto;">
 												<div class="ss_1">
@@ -726,37 +425,158 @@
 										</li>
 									</ul>
 								</div>
+
 							</div>
 
 						</div>
 					</div>
 				</div>
+				<div class="sjbg">
+					<div class="sbnkb" id="alertBtn">
+						<img src="img/ds.png" />
+					</div>
+					<div class="sbnkb" id="telephone">
+						<img src="img/phone_2.png" />
+					</div>
+					<div class="sbnkb" style="border-right:none;" id="liuyan">
+						<img src="img/kf.png" style="width: 25%;" />
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	<div class="test" style="position:fixed;width:300px;height:200px;bottom:0;left:0;z-index:999;background:#fff;color:#000000;">
 
+	</div>
+	
 
 	<!-- <script src="js/swiper.js"></script> -->
 	<script src="js/mui.min.js"></script>
 	<script src="js/JQ_1.js"></script>
 	<script src="js/kk.js"></script>
+	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
+	<script src="js/js/menu.js"></script>
+	<script src="https://cdn.bootcss.com/handlebars.js/4.0.11/handlebars.min.js"></script>
 
-
+	<!-- 商品类别 -->
+	<script type="text/x-handlebars-template" id="cp-header">
+		<div class="txk">
+			<div class="suo">
+				<img src="img/cz.png" style="width:100%" />
+			</div>
+			<div class="nav">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			</div>
+			{{cp-header-helper data}}
+		</div>
+	</script>
 
 	<script>
-		mui.ajax('http://139.129.225.176/yfapi.php?op=test', {
+		var tmp = Date.parse(new Date()).toString();
+		var time = tmp.substr(0, 10);//发起请求时间
+		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+		var signature = sha1(str);  //签名 sha1加密
+		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature;  //服务器请求地址
+		// 获取产品类别
+		// $.ajax({
+		// 	// url:pre_url+'&op=test',
+		// 	url: pre_url + '&op=get_product_type',//获取产品类别
+		// 	// url:pre_url+'&op=get_product',//获取产品数据 可选参数 tid:产品类别ID,id:产品ID,p:页码
+
+		// 	// url:pre_url+'&op=save_message',//留言 参数 name,phone,msg, data:{name:'jack',phone:'18222939377','msg':'aaaaaaaa哈哈哈哈哈'},
+		// 	// url:pre_url+'&op=register',//注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
+		// 	// url: pre_url + '&op=login',//登录 参数 mobile,password
+		// 	type: 'get',
+		// 	dataType: 'jsonp',
+		// 	jsonp: 'callback',
+		// 	success: function (mes) {
+		// 		console.log(mes)
+		// 		Handlebars.registerHelper('cp-header-helper', function (data) {
+		// 			var tpl = '';
+		// 			data.map(function (item, index) {
+		// 				if (index == 0) {
+		// 					tpl += "<div class='nav col-l'>" + item.name + "</div>";
+		// 				} else {
+		// 					tpl += "<div class='nav'>" + item.name + "</div>";
+		// 				}
+		// 			})
+		// 			return new Handlebars.SafeString(tpl);
+		// 		});
+		// 		var cpHeaderTpl = $('#cp-header').html();
+		// 		var cpHeaderCpl = Handlebars.compile(cpHeaderTpl);
+		// 		var cpHeaderDpl = cpHeaderCpl(mes);
+		// 		$('.cp-header').html(cpHeaderDpl);
+
+		// 	}
+		// })
+
+		// mui.ajax(pre_url+'&op=get_product_type', {
+		// 	type: 'get',
+		// 	success: function (mes) {
+		// 		console.log(mes)
+		// 		var testText = ''
+		// 		for (const key in mes) {
+		// 			if (mes.hasOwnProperty(key)) {
+		// 				const element = mes[key];
+		// 				testText += key +':'+ mes[key] + '</br>';
+		// 			}
+		// 		}
+		// 		$('.test').text(testText);
+		// 		Handlebars.registerHelper('cp-header-helper', function (data) {
+		// 			var tpl = '';
+		// 			data.map(function (item, index) {
+		// 				if (index == 0) {
+		// 					tpl += "<div class='nav col-l'>" + item.name + "</div>";
+		// 				} else {
+		// 					tpl += "<div class='nav'>" + item.name + "</div>";
+		// 				}
+		// 			})
+		// 			return new Handlebars.SafeString(tpl);
+		// 		});
+		// 		var cpHeaderTpl = $('#cp-header').html();
+		// 		var cpHeaderCpl = Handlebars.compile(cpHeaderTpl);
+		// 		var cpHeaderDpl = cpHeaderCpl(mes);
+		// 		$('.cp-header').html(cpHeaderDpl);
+
+		// 	}
+		// })
+
+		// 获取产品列表
+		$.ajax({
+			url:pre_url+'&op=get_news_list',//获取文章数据 可带参数 pagesize:分页大小,p:页码
 			type: 'post',
-			success: function (res) {
-				console.log(res);
+			dataType: 'jsonp',
+			jsonp: 'callback',
+			success: function (mes) {
+				console.log(mes)
+
+
 			}
 		})
 
 		mui('#index-scroll').scroll();
 
-		document.getElementById("alertBtn").addEventListener('tap', function () {
-			mui.alert('搜索"天津塘沽一阀"', '欢迎关注公众号', function () {});
-		});
-		document.getElementById("telephone").addEventListener('tap', function () {
+
+		// header事件
+		mui('.mui-bar').on('tap', '#mbtn', function () {
+			mui('.mui-off-canvas-wrap').offCanvas('toggle');
+		})
+		mui('.mui-bar').on('tap', "#dj", function () {
+			var btnArray = ['拨打', '取消'];
+			var phone = "12315";
+			mui.confirm('' + phone + '', '打假电话', btnArray, function (e) {
+				if (e.index == 0) {
+					plus.device.dial(phone, false);
+				}
+			});
+		})
+
+		// tabbar事件
+		mui('.sjbg').on('tap', '#alertBtn', function () {
+			mui.alert('搜索"天津塘沽一阀"', '欢迎关注公众号', function () { });
+
+		})
+		mui('.sjbg').on('tap', '#telephone', function () {
 			var btnArray = ['拨打', '取消'];
 			var phone = "13821111191";
 			mui.confirm('' + phone + '', '客服电话', btnArray, function (e) {
@@ -765,24 +585,61 @@
 				}
 			});
 		})
+		mui('#liuyan')[0].addEventListener('tap',function(){
+			mui.openWindow({url:'subpage/kf.html',id:'subpage/kf.html'});
+		})
+
+		// 首页1
+		mui('#qyjj')[0].addEventListener('tap', function () {
+			mui.openWindow({ url: 'my/company_profile.html', id: 'my/company_profile.html' });
+		})
+		mui('#dlwz')[0].addEventListener('tap', function () {
+			mui.openWindow({ url: 'my/map.html', id: 'my/map.html' });
+		})
+		mui('#gytgyf')[0].addEventListener('tap', function () {
+			mui.openWindow({ url: 'my/regard.html', id: 'my/regard.html' });
+		})
+		mui('#a1')[0].addEventListener('tap', function () {
+			mui.openWindow({ url: 'subpage/league.html', id: 'subpage/league.html' });
+		})
 
 
+		// 导航
 		mui('#tit').on('tap', 'span', function () {
 			var i = $(this).index();
+			if (i == 0) {
+				$('.sjbg').show()
+			} else {
+				$('.sjbg').hide()
+			}
 			$(this).addClass('select').siblings().removeClass('select');
 			$('#con li').eq(i).show().siblings().hide();
 		});
-		// $('#tit span').click(function () {
-		// 	var i = $(this).index();
-		// 	$(this).addClass('select').siblings().removeClass('select');
-		// 	$('#con li').eq(i).show().siblings().hide();
-		// });
+		// 搜索框
+		mui('.cp-header').on('tap', '.suo', function () {
+			$(".ss_1").fadeToggle(0)
+		})
+		// 产品导航
+		mui('.cp-header').on('tap', '.nav', function () {
+			var moveX = $(this).position().left + $(this).parent().scrollLeft();
+			var pageX = document.documentElement.clientWidth;
+			var blockWidth = $(this).width();
+			console.log(moveX)
+			console.log(pageX);
+			console.log(blockWidth);
+			var left = moveX - (pageX / 2) + (blockWidth / 2);
+			$(this).css("color", "red").siblings().css("color", "#FFFFFF");
+			$(".cp-header ").scrollLeft(left);
+		})
+
+
 		$(function () {
-			$("#tuichu").on("click", function () {
+			mui("#tuichu")[0].addEventListener("tap", function () {
 				$(".appName").remove()
 
 			})
 		})
+
 		mui.oldback = mui.back;
 		var clickNum = 0;
 		mui.back = function (event) {
@@ -800,48 +657,39 @@
 	</script>
 	<script>
 		var menuButton = document.querySelector('.menu-button');
-		var swiper = new Swiper('.swiper-container', {
-			slidesPerView: 'auto',
-			initialSlide: 1,
-			resistanceRatio: 0,
-			slideToClickedSlide: true,
-			on: {
-				init: function () {
-					var slider = this;
-					menuButton.addEventListener('click', function () {
-						if (slider.activeIndex === 0) {
-							slider.slideNext();
-						} else {
-							slider.slidePrev();
-						}
-					}, true);
-				},
-				slideChange: function () {
-					var slider = this;
-					if (slider.activeIndex === 0) {
-						menuButton.classList.add('cross');
-					} else {
-						menuButton.classList.remove('cross');
-					}
-				},
-			}
-		});
+		// var swiper = new Swiper('.swiper-container', {
+		// 	slidesPerView: 'auto',
+		// 	initialSlide: 1,
+		// 	resistanceRatio: 0,
+		// 	slideToClickedSlide: true,
+		// 	on: {
+		// 		init: function () {
+		// 			var slider = this;
+		// 			menuButton.addEventListener('click', function () {
+		// 				if (slider.activeIndex === 0) {
+		// 					slider.slideNext();
+		// 				} else {
+		// 					slider.slidePrev();
+		// 				}
+		// 			}, true);
+		// 		},
+		// 		slideChange: function () {
+		// 			var slider = this;
+		// 			if (slider.activeIndex === 0) {
+		// 				menuButton.classList.add('cross');
+		// 			} else {
+		// 				menuButton.classList.remove('cross');
+		// 			}
+		// 		},
+		// 	}
+		// });
 
-		document.getElementById("dj").addEventListener('tap', function () {
-			var btnArray = ['拨打', '取消'];
-			var phone = "12315";
-			mui.confirm('' + phone + '', '打假电话', btnArray, function (e) {
-				if (e.index == 0) {
-					plus.device.dial(phone, false);
-				}
-			});
-		})
-		document.getElementById("gzh").addEventListener('tap', function () {
-			mui.alert('搜索"天津塘沽一阀"', '欢迎关注公众号', function () {});
-		});
-		$(".suo").click(function () {
-			$(".ss_1").fadeToggle(0)
-		})
+
+
+
+
+
+
 		$(function () {
 			$(".xo").overTexts({
 				texts: 'FlowEx国际泵管阀展将在上海世博展览馆举行发布时间：2015-02-12 08:59 发布者：admin 代表华东最高品质的FlowEx国际泵管阀展将于2012年6月6日-8日在上海世博展览馆盛大开幕。本届规模为20,000平米，参展商逾400家。荷瑞会展诚邀您参观本届上海泵管阀展！ 作为世界级的展会，上海泵管阀展涵盖40%的国际展商，业内巨头纷纷参展。日本展商有IWAKI、日东精工、久保田、川本水泵、百事德机械等；德国展商有KSB、瑞茨水泵、NORRES（诺瑞）工业软管、宝德等；美国展商有Xylem（原ITT）、滨特尔、IDEX 、NUTORK、固瑞克等；除此之外，瑞士乔治费歇尔、意大利ODE、沙特博禄集团、丹麦DANFOSS等世界一线泵阀管道展商已加入到FlowEx的阵营，为不同行业领域的企业就装备升级、工程建造、经销代理及响应节能减排等各方面作好准备。    展会注重与行业协会紧密合作，上海机械工程学会流体工程专业委员会和上海建筑学会建筑给水排水专业委员会作为协办单位，将与主办方共同实现行业间的交流互动。他们将组织 “上海机械工程学会展团”和“上海建筑给水排水展团”，向广大专业观众展示最新处理技术和解决方案。',
@@ -867,23 +715,8 @@
 				ooType: "2"
 			})
 		});
-		$(function () {
-			$(".nav").on("click", function (ev) {
-				var moveX = $(this).position().left + $(this).parent().scrollLeft();
-				var pageX = document.documentElement.clientWidth;
-				var blockWidth = $(this).width();
-				console.log(moveX)
-				console.log(pageX);
-				console.log(blockWidth);
-				var left = moveX - (pageX / 2) + (blockWidth / 2);
-				$(this).css("color", "red").siblings().css("color", "#FFFFFF");
-				$("header").scrollLeft(left);
-			})
-			$(".fm_right").click(function () {
-				$(".ss_1").fadeToggle(0)
-			})
 
-		});
+
 
 		function drag() {
 			var obj = $('#a1');

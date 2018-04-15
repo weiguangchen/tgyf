@@ -1,116 +1,121 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../css/mui.min.css" rel="stylesheet" />
-		<link href="../css/app.css" rel="stylesheet" />
-		<link href="../css/fm.css" rel="stylesheet" />
-		<link href="../css/ydui.css"  rel="stylesheet"/>
-		<script src="../js/rem.js"></script>
-		<style>
-			.userInfo {
-				height: 90px;
-				width: 100%;
-				border: none;
-				background: #EFEFEF;
-			}
-			
-			.userImage {
-				margin-top: 15px;
-				margin-left: -.8rem;
-				width: 60px;
-				height: 60px;
-				border-radius: 30px;
-			}
-			
-			.appName {
-				height: 80px;
-				line-height: 100px;
-				position: absolute;
-				margin-left: 10px;
-				color: #000000;
-			}
-			#bc{
-				width: 1rem;		
-				background: #E1E1E1;
-				float: right;
-				font-size: .25rem;
-				text-align: center;
-				line-height:50px;
-				margin: .5rem;
-				color: #FFFFFF;
-			}
-		</style>
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link href="../css/mui.min.css" rel="stylesheet" />
+	<link href="../css/app.css" rel="stylesheet" />
+	<link href="../css/fm.css" rel="stylesheet" />
+	<link href="../css/ydui.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/css/mui_reset.css">
+	<script src="../js/rem.js"></script>
+	<style>
+		.userInfo {
+			height: 90px;
+			width: 100%;
+			border: none;
+			background: #EFEFEF;
+		}
 
-	<body style="background: #FFFFFF;">
-		<div class="title1" !important;>
-			<div class="fm_left mui-action-back mui-pull-left">
-				<img src="../img/fh.png" />
-			</div>
-			<div class="fm_middle">
-				<P>注册登录</P>
-			</div>
-			<div class="fm_right">
-			</div>
+		.userImage {
+			margin-top: 15px;
+			/* margin-left: -.8rem; */
+			width: 60px;
+			height: 60px;
+			border-radius: 30px;
+		}
+
+		.appName {
+			height: 80px;
+			line-height: 100px;
+			position: absolute;
+			margin-left: 10px;
+			color: #000000;
+		}
+
+		#bc {
+			width: 1rem;
+			background: #E1E1E1;
+			float: right;
+			font-size: .25rem;
+			text-align: center;
+			line-height: 50px;
+			margin: .5rem;
+			color: #FFFFFF;
+		}
+	</style>
+</head>
+
+<body style="background: #FFFFFF;">
+	<div class="title">
+		<div class="fm_left mui-action-back mui-pull-left">
+			<img src="../img/fh.png" />
 		</div>
+		<div class="fm_middle">
+			<P>注册登录</P>
+		</div>
+		<div class="fm_right">
+		</div>
+	</div>
+	<div class="nr">
 		<div class="mui-content">
 			<div class="userInfo">
-			<img src="../img/1.jpg" class="userImage" id="headImage">
-			<a class="appName">塘沽一阀</a>	
-			<div id="bc">保存</div>
-		   </div>
-		    
-		 </div>
-		
+				<img src="../img/1.jpg" class="userImage" id="headImage">
+				<a class="appName">塘沽一阀</a>
+				<div id="bc">保存</div>
+			</div>
+
+		</div>
+
 		<div class="grxx">
 			<div class="grxx_sr mui-input-row">
 				<span>昵称:</span>
-				<input type="text" placeholder="输入昵称" class="mui-input-clear"/>
+				<input type="text" placeholder="输入昵称" class="mui-input-clear" />
 			</div>
 			<div class="c"></div>
 			<div class="grxx_sr mui-input-row">
 				<span>手机:</span>
-				<input type="text" placeholder="输入手机号" class="mui-input-clear"/>
+				<input type="text" placeholder="输入手机号" class="mui-input-clear" />
 			</div>
 			<div class="c"></div>
 			<div class="grxx_sr mui-input-row">
 				<span>邮箱:</span>
-				<input type="text" placeholder="输入邮箱" class="mui-input-clear"/>
+				<input type="text" placeholder="输入邮箱" class="mui-input-clear" />
 			</div>
 			<div class="c"></div>
 			<!--<div class="grxx_sr mui-input-row">
-				<span>地址:</span>
-				<input type="text" readonly id="J_Address" placeholder="输入地址">
-			</div>-->
-			
+							<span>地址:</span>
+							<input type="text" readonly id="J_Address" placeholder="输入地址">
+						</div>-->
+
 		</div>
-		 <!--<div class="kjdl" style="width: 90%;margin: 1.8rem auto;background:#c32126;" onclick="mui.openWindow({url:'../register.html',id:'../register.html'});">
-		 	<button style="background:#c32126;width: 100%;height: 50px;color: #FFFFFF;font-size: .3rem;">快捷登录</button>
-		 </div>-->
-		 <div style="width: 90%;margin: 1rem auto .5rem auto;" onclick="mui.openWindow({url:'../register.html',id:'../register.html'});">
-				<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;border-radius:.1rem;">快捷登录</button>
+		<!--<div class="kjdl" style="width: 90%;margin: 1.8rem auto;background:#c32126;" onclick="mui.openWindow({url:'../register.html',id:'../register.html'});">
+						 <button style="background:#c32126;width: 100%;height: 50px;color: #FFFFFF;font-size: .3rem;">快捷登录</button>
+					 </div>-->
+		<div style="width: 90%;margin: 1rem auto .5rem auto;" onclick="mui.openWindow({url:'../register.html',id:'../register.html'});">
+			<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;border-radius:.1rem;">快捷登录</button>
 		</div>
-		<script src="../js/mui.min.js"></script>
-		<script src="../js/jquery-3.2.1.min.js"></script>
-		<script src="//static.ydcss.com/uploads/ydui/ydui.citys.js"></script>
-		<script src="../js/ydui.js"></script>
-		<script>
-			var $address = $('#J_Address');
-			$address.citySelect();
-			$address.on('click', function() {
-				$address.citySelect('open');
-			});
-			$address.on('done.ydui.cityselect', function(ret) {
-				/* 省：ret.provance */
-				/* 市：ret.city */
-				/* 县：ret.area */
-				$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
-			});
-		</script>
-	</body>
+	</div>
+
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="//static.ydcss.com/uploads/ydui/ydui.citys.js"></script>
+	<script src="../js/ydui.js"></script>
+	<script>
+		var $address = $('#J_Address');
+		$address.citySelect();
+		$address.on('click', function () {
+			$address.citySelect('open');
+		});
+		$address.on('done.ydui.cityselect', function (ret) {
+			/* 省：ret.provance */
+			/* 市：ret.city */
+			/* 县：ret.area */
+			$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+		});
+	</script>
+</body>
 
 </html>

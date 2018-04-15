@@ -102,14 +102,14 @@
 
 .fm_left img {
 	width: .6rem;
-	margin: .25rem;
+	/* margin: .25rem; */
 }
 
 .fm_middle {
 	width: 70%;
-	float: left;
+	/* float: left; */
 	text-align: center;
-	padding-top: .3rem;
+	/* padding-top: .3rem; */
 }
 
 .fm_middle p {
@@ -125,7 +125,7 @@
 
 .fm_right img {
 	width: .4rem;
-	padding-top: .35rem;
+	/* padding-top: .35rem; */
 }
 
 .content {
@@ -1359,9 +1359,8 @@
     -webkit-justify-content: center;
     justify-content: center;
 	background:#c32126;
-	/* position: fixed; */
-	position: absolute;
-	bottom: 50px;
+	position: fixed;
+	bottom: 0;
 	z-index: 9999999999;
 }
 .sbnkb{

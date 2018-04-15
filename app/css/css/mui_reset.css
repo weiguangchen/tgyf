@@ -1,0 +1,23 @@
+.mui-bar {
+  padding: 0; }
+
+.mui-bar-nav {
+  margin-top: 0; }
+
+.fm_left img, .fm_right img {
+  width: .6rem; }
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .title .fm_left, .title .fm_right, .title .fm_middle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
