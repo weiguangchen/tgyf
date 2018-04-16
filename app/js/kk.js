@@ -63,7 +63,7 @@
 		//姝ゅ鍒ゆ柇 灏辨槸 宸茬粡鏈夊睍寮€鎴栬€呮敹璧蜂簡
 		if ($(this).find("a").hasClass("moreoh")) {
 			//浜嬩欢濮旀墭锛岃浠栧彲浠ユ墽琛�
-			$(".moreText").on("click", "a.moreoh", function () {//鏇村鎴栬€呮敹璧风殑鐐瑰嚮浜嬩欢
+			mui('.moreText').on('tap','a.moreoh',function(){
 				var moreoh = $(this).find("a.moreoh");//鎴戞槸鏇村鎴栬€呮敹璧风殑dom
 				if (moreoh.context.innerText == opt.overText) {//濡傛灉鎴戞鏃舵槸灞曞紑
 					if (opt.ooType == 2) {
@@ -81,7 +81,10 @@
 					moreoh.context.innerText = opt.overText;
 					$(this).parents(".moreText").html(t1);
 				}
-			});
+			})
+			// $(".moreText").on("click", "a.moreoh", function () {//鏇村鎴栬€呮敹璧风殑鐐瑰嚮浜嬩欢
+				
+			// });
 		}
 
 	}

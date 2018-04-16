@@ -20,11 +20,11 @@ var reload = bs.reload;
 var app = './app';
 var build = './build';
 var dist = './dist';
-var jssrc = app + '/js/**/*.js';
-var csssrc = app + '/css/ **/*.css';
-var scss = app + '/scss/**/*.scss';
-// html模板地址
-var html = app + '/view/**/*.html';
+var cssSrc = './app/css/css/';
+var scssSrc = './src/scss/**/*.scss';
+var esSrc = './src/js/**/*.js';
+var jsSrc = './app/js/js/';
+var templateSrc = './src/template/**/*.html';
 // 替换资源版本号后的html
 var htmlrev = dist + '/view';
 var images = app + '/images/**/*.img';
@@ -32,28 +32,28 @@ var images = app + '/images/**/*.img';
 // 开启本地服务器
 gulp.task('serve', ['postcss', 'es6', 'template'], function () {
     bs.init({
-        server: './'
+        server: './app'
     })
-    gulp.watch(scss, ['postcss']);
-    gulp.watch(jssrc, ['es6']);
-    gulp.watch(html, ['template']);
-    gulp.watch(['./app/template/**/*.html',html], ['template']);
-    gulp.watch(html).on('change', reload);
+    gulp.watch(scssSrc, ['postcss']);
+    gulp.watch('./src/js/**/*.js', ['es6']);
+    // gulp.watch(html, ['template']);
+    gulp.watch(templateSrc, ['template']);
+    gulp.watch(templateSrc).on('change', reload);
 })
 
 // 合并template模板
 gulp.task('template', function () {
-    return gulp.src(html)
+    return gulp.src(templateSrc)
         .pipe(contentIncluder({
             includerReg: /<include\s+"([^"]+)">/g
         }))
-        .pipe(gulp.dest('./app/html'))
+        .pipe(gulp.dest('./app/subpage'))
         .pipe(reload({ stream: true }));
 })
 
 // 编译scss
 gulp.task('postcss', function () {
-    return gulp.src(scss)
+    return gulp.src(scssSrc)
         .pipe(plumber())
         .pipe(sass())
         .pipe(postcss([autoprefixer({
@@ -63,18 +63,18 @@ gulp.task('postcss', function () {
             //        transform: rotate(45deg);
             remove: true //是否去掉不必要的前缀 默认：true
         })]))
-        .pipe(gulp.dest(build + '/css'))
-        .pipe(gulp.dest(app + '/css'))
+        // .pipe(gulp.dest(build + '/css'))
+        .pipe(gulp.dest(cssSrc))
         .pipe(reload({ stream: true }));
 });
 
 // 编译es6
 gulp.task('es6', () => {
-    return gulp.src(jssrc)
+    return gulp.src(esSrc)
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(gulp.dest(build + '/js'))
+        .pipe(gulp.dest(jsSrc))
         .pipe(reload({ stream: true }));
 })
 

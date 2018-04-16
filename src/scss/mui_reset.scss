@@ -1,0 +1,22 @@
+.mui-bar{
+    padding:0;
+    
+}
+.mui-bar-nav{
+    margin-top: 0;
+}
+
+.fm_left,.fm_right{
+    img{
+        width: .6rem;
+    }
+}
+.title{
+    display: flex;
+    .fm_left,.fm_right,.fm_middle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // flex: 1;
+    }
+}
