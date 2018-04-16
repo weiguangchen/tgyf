@@ -26,8 +26,8 @@
 	<div class="nr">
 
 		<div class="mui-input-row" style="margin: 10px 5px;">
-			<input type="text" placeholder="姓名" style="font-size: .3rem;"  id="name"/>
-			<input type="text" placeholder="联系电话" style="font-size: .3rem;"  id="phone"/>
+			<input type="text" placeholder="姓名" style="font-size: .3rem;" id="name" />
+			<input type="text" placeholder="联系电话" style="font-size: .3rem;" id="phone" />
 			<textarea id="textarea" rows="8" placeholder="留言反馈" style="font-size: .3rem;"></textarea>
 			<button id="tijiao" style="width: 100%;height: .8rem;margin-top: .8rem;background: #C32126;color: #FFFFFF;">提交</button>
 		</div>
@@ -38,77 +38,116 @@
 <script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 <script src="../js/mui.min.js"></script>
 <script>
-	if(window.plus){
+	if (window.plus) {
 		plusReady();
-	}else{
-		document.addEventListener("plusready",plusReady,false);
+	} else {
+		document.addEventListener("plusready", plusReady, false);
 	}
-	
-	function plusReady(){
+
+	function plusReady() {
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
 		// 弹出系统提示对话框
-		// plus.nativeUI.alert( "Plus is ready!", function(){
-		// 	console.log( "User pressed!" );
-		// }, "nativeUI", "OK" );
-		
-		
-		mui('#tijiao')[0].addEventListener('tap',function(){
+		// plus.nativeUI.alert("Plus is ready!", function () {
+		// 	console.log("User pressed!");
+		// }, "nativeUI", "OK");
+
+		// $('#tijiao').click(function () {
+		mui('#tijiao')[0].addEventListener('tap', function () {
 			// 表单验证
 			var name = $('#name').val();
 			var phone = $('#phone').val();
 			var textarea = $('#textarea').val();
-			if(!name){
-				plus.nativeUI.alert('请填写姓名!',function(){
+			if (!name) {
+				plus.nativeUI.alert('请填写姓名!', function () {
 
-				},'提示','OK')
+				}, '提示', 'OK')
 				return false;
 			}
-			if(!phone){
-				plus.nativeUI.alert('请填写手机号码!',function(){
+			if (!phone) {
+				plus.nativeUI.alert('请填写手机号码!', function () {
 
-				},'提示','OK');
+				}, '提示', 'OK');
 				return false;
 			}
-			if(!textarea){
-				plus.nativeUI.alert('请填写留言反馈!',function(){
+			if (!textarea) {
+				plus.nativeUI.alert('请填写留言反馈!', function () {
 
-				},'提示','OK');
+				}, '提示', 'OK');
 				return false;
 			}
 
 			var tmp = Date.parse(new Date()).toString();
-			var time = tmp.substr(0, 10);//发起请求时间
+			var time = tmp.substr(0, 10); //发起请求时间
 			var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
-			var signature = sha1(str);  //签名 sha1加密
-			var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature;  //服务器请求地址
+			var signature = sha1(str); //签名 sha1加密
+			var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
 			// 获取产品类别
-			mui.ajax(pre_url+'&op=save_message',{
+			mui.ajax(pre_url + '&op=save_message', {
 				type: 'get',
-				data:{
-					name:name,
-					phone:phone,
-					msg:textarea
+				data: {
+					name: name,
+					phone: phone,
+					msg: textarea
 				},
 				dataType: 'jsonp',
 				jsonp: 'callback',
 				success: function (mes) {
-					console.log(mes)
-					plus.nativeUI.alert('反馈成功!',function(){
+					// var res = JSON.parse(mes);
+					mes = eval(mes);
+					if (mes.status == 1) {
+						plus.nativeUI.alert('反馈成功!', function () {
 
-					},'提示','OK');
-					return false;
+						}, '提示', 'OK');
+						return false;
+					} else {
+						plus.nativeUI.alert('反馈失败!', function () {
+
+						}, '提示', 'OK');
+						return false;
+					}
+
 					// plus.nativeUI.alert('请填写姓名!',function(){
 
 					// },'提示','OK')
-					
+
 				}
 			})
+
+			// $.ajax({
+			// 	url: pre_url + '&op=save_message',
+			// 	type: 'get',
+			// 	data: {
+			// 		name: name,
+			// 		phone: phone,
+			// 		msg: textarea
+			// 	},
+			// 	dataType: 'jsonp',
+			// 	jsonp: 'callback',
+			// 	success: function (mes) {
+			// 		console.log(mes.status)
+			// 		if (res.status == 1) {
+			// 			plus.nativeUI.alert('反馈成功!', function () {
+
+			// 			}, '提示', 'OK');
+			// 			return false;
+			// 		} else {
+			// 			plus.nativeUI.alert('反馈失败!', function () {
+
+			// 			}, '提示', 'OK');
+			// 			return false;
+			// 		}
+
+			// 		// plus.nativeUI.alert('请填写姓名!',function(){
+
+			// 		// },'提示','OK')
+
+			// 	}
+			// })
 		})
 
 	}
-
-
-
-	
 </script>
 
 </html>

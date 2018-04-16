@@ -445,10 +445,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="test" style="position:fixed;width:300px;height:200px;bottom:0;left:0;z-index:999;background:#fff;color:#000000;">
+	<!-- <div class="test" style="position:fixed;width:300px;height:200px;bottom:0;left:0;z-index:999;background:#fff;color:#000000;">
 
-	</div>
-	
+	</div> -->
+
 
 	<!-- <script src="js/swiper.js"></script> -->
 	<script src="js/mui.min.js"></script>
@@ -473,10 +473,10 @@
 
 	<script>
 		var tmp = Date.parse(new Date()).toString();
-		var time = tmp.substr(0, 10);//发起请求时间
+		var time = tmp.substr(0, 10); //发起请求时间
 		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
-		var signature = sha1(str);  //签名 sha1加密
-		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature;  //服务器请求地址
+		var signature = sha1(str); //签名 sha1加密
+		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
 		// 获取产品类别
 		// $.ajax({
 		// 	// url:pre_url+'&op=test',
@@ -543,7 +543,7 @@
 
 		// 获取产品列表
 		$.ajax({
-			url:pre_url+'&op=get_news_list',//获取文章数据 可带参数 pagesize:分页大小,p:页码
+			url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
 			type: 'post',
 			dataType: 'jsonp',
 			jsonp: 'callback',
@@ -573,7 +573,7 @@
 
 		// tabbar事件
 		mui('.sjbg').on('tap', '#alertBtn', function () {
-			mui.alert('搜索"天津塘沽一阀"', '欢迎关注公众号', function () { });
+			mui.alert('搜索"天津塘沽一阀"', '欢迎关注公众号', function () {});
 
 		})
 		mui('.sjbg').on('tap', '#telephone', function () {
@@ -585,22 +585,40 @@
 				}
 			});
 		})
-		mui('#liuyan')[0].addEventListener('tap',function(){
-			mui.openWindow({url:'subpage/kf.html',id:'subpage/kf.html'});
+		mui('#liuyan')[0].addEventListener('tap', function () {
+			mui.openWindow({
+				url: 'subpage/kf.html',
+				id: 'subpage/kf.html',
+				styles: {
+					popGesture: 'close' // 'hide', 'close','none' 此处是关键
+				}
+			})
 		})
 
 		// 首页1
 		mui('#qyjj')[0].addEventListener('tap', function () {
-			mui.openWindow({ url: 'my/company_profile.html', id: 'my/company_profile.html' });
+			mui.openWindow({
+				url: 'my/company_profile.html',
+				id: 'my/company_profile.html'
+			});
 		})
 		mui('#dlwz')[0].addEventListener('tap', function () {
-			mui.openWindow({ url: 'my/map.html', id: 'my/map.html' });
+			mui.openWindow({
+				url: 'my/map.html',
+				id: 'my/map.html'
+			});
 		})
 		mui('#gytgyf')[0].addEventListener('tap', function () {
-			mui.openWindow({ url: 'my/regard.html', id: 'my/regard.html' });
+			mui.openWindow({
+				url: 'my/regard.html',
+				id: 'my/regard.html'
+			});
 		})
 		mui('#a1')[0].addEventListener('tap', function () {
-			mui.openWindow({ url: 'subpage/league.html', id: 'subpage/league.html' });
+			mui.openWindow({
+				url: 'subpage/league.html',
+				id: 'subpage/league.html'
+			});
 		})
 
 
