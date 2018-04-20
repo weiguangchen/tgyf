@@ -89,6 +89,19 @@
 			speed: 5
 		});
 	</script>
+	<script>
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+
+		function plusReady() {
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		}
+	</script>
 </body>
 
 </body>

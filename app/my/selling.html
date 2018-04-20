@@ -51,6 +51,18 @@
 		<script src="../js/jquery-3.2.1.min.js"></script>
 		<script src="../js/new_file.js"></script>
 		<script>
+			if (window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+
+			function plusReady() {
+				mui.init({
+					swipeBack: true //启用右滑关闭功能
+				});
+			}
+			
 			$(function() {
 				$('#sucaihuo').simplerSidebar({
 					opener: '#toggle-sidebar',

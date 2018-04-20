@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/fm.css">
 	<link rel="stylesheet" href="css/mui.min.css">
 	<link rel="stylesheet" href="css/css/mui_reset.css">
+	<link rel="stylesheet" href="css/css/index.css">
 	<script src="js/rem.js"></script>
 	<!-- Demo styles -->
 	<style>
@@ -126,16 +127,7 @@
 			position: fixed;
 		}
 
-		.txk {
-			position: relative;
-		}
 
-		.nav {
-			display: inline-block;
-			margin-left: 15px;
-			margin-right: 10px;
-			font-size: .28rem;
-		}
 
 		.leftimg {
 			width: 49%;
@@ -152,9 +144,6 @@
 			height: 3rem;
 		}
 
-		.col-l {
-			color: red;
-		}
 
 		.rightimg img {
 			width: 100%;
@@ -204,15 +193,6 @@
 		.moreoh {
 			font-size: .26rem;
 			color: #44aaff;
-		}
-
-		.suo {
-			width: 50px;
-			height: 55px;
-			background: #000000;
-			position: fixed;
-			z-index: 99999999;
-			padding: .2rem;
 		}
 	</style>
 </head>
@@ -351,22 +331,18 @@
 												</div>
 											</div>
 											<div style="width: 100%;height: 1.5rem;"></div>
-											<!-- <div class="sjbg">
-												<div class="sbnkb" id="alertBtn">
-													<img src="img/ds.png" />
-												</div>
-												<div class="sbnkb" id="telephone">
-													<img src="img/phone_2.png" />
-												</div>
-												<div class="sbnkb" style="border-right:none;" onclick="mui.openWindow({url:'subpage/kf.html',id:'subpage/kf.html'});">
-													<img src="img/kf.png" style="width: 25%;" />
-												</div>
-											</div> -->
-
 										</li>
 										<li>
 											<div class="cp-header">
+												<div class="txk">
+													<div class="suo">
+														<img src="img/cz.png" style="width:100%" />
+													</div>
+													<div class="nav-list">
 
+													</div>
+
+												</div>
 											</div>
 
 											<div class="fis_tu" style="width: 95%;height:100vh;margin: .8rem auto;">
@@ -377,7 +353,7 @@
 													</div>
 												</div>
 												<div class="leftimg">
-													<img src="img/qf_1.jpg" onclick="mui.openWindow({url:'subpage/ub.html',id:'subpage/ub.html'});" />
+													<img src="img/qf_1.jpg" />
 												</div>
 												<div class="rightimg">
 													<img src="img/qf_2.jpg" />
@@ -404,8 +380,37 @@
 
 										</li>
 										<li>
+											<ul class="mui-table-view">
+												<li class="mui-table-view-cell mui-media">
+													<a href="javascript:;">
+														<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+														<div class="mui-media-body">
+															幸福
+															<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+														</div>
+													</a>
+												</li>
+												<li class="mui-table-view-cell mui-media">
+													<a href="javascript:;">
+														<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+														<div class="mui-media-body">
+															木屋
+															<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+														</div>
+													</a>
+												</li>
+												<li class="mui-table-view-cell mui-media">
+													<a href="javascript:;">
+														<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
+														<div class="mui-media-body">
+															CBD
+															<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+														</div>
+													</a>
+												</li>
 
-											<div class="new_kuai">
+											</ul>
+											<!-- <div class="new_kuai">
 												<h4>FlowEx国际泵管阀展</h4>
 												<P class="xo"></P>
 											</div>
@@ -417,7 +422,7 @@
 											<div class="new_kuai">
 												<h4>FlowEx国际泵管阀展</h4>
 												<P class="xox"> </P>
-											</div>
+											</div> -->
 											<div style="width: 90%;margin: .5rem auto 1rem auto;">
 												<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;">更新</button>
 											</div>
@@ -454,96 +459,70 @@
 	<script src="js/mui.min.js"></script>
 	<script src="js/JQ_1.js"></script>
 	<script src="js/kk.js"></script>
-	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 	<script src="js/js/menu.js"></script>
+	<script src="js/template-web.js"></script>
+	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 	<script src="https://cdn.bootcss.com/handlebars.js/4.0.11/handlebars.min.js"></script>
-
+	<script src="js/js/index/index.js">
+	</script>
 	<!-- 商品类别 -->
-	<script type="text/x-handlebars-template" id="cp-header">
-		<div class="txk">
-			<div class="suo">
-				<img src="img/cz.png" style="width:100%" />
-			</div>
-			<div class="nav">
-				&nbsp;&nbsp;&nbsp;&nbsp;
-			</div>
-			{{cp-header-helper data}}
-		</div>
+	<script type="text/html" id="cp-header">
+		<% for(var i=0;i<data.length;i++){%>
+			<% if(i==0){ %>
+				<div class='nav col-l'>
+					<%= data[i].name %>
+				</div>
+				<% }else{ %>
+					<div class='nav'>
+						<%= data[i].name %>
+					</div>
+					<% } %>
+						<% } %>
 	</script>
 
 	<script>
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+
+		function plusReady() {
+			if (plus.runtime.isApplicationExist({
+					pname: 'com.tencent.mm',
+					action: 'weixin://'
+				})) {
+				console.log("微信应用已安装");
+			} else {
+				console.log("微信应用未安装");
+
+			}
+		}
 		var tmp = Date.parse(new Date()).toString();
 		var time = tmp.substr(0, 10); //发起请求时间
 		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
 		var signature = sha1(str); //签名 sha1加密
 		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
 		// 获取产品类别
-		// $.ajax({
-		// 	// url:pre_url+'&op=test',
-		// 	url: pre_url + '&op=get_product_type',//获取产品类别
-		// 	// url:pre_url+'&op=get_product',//获取产品数据 可选参数 tid:产品类别ID,id:产品ID,p:页码
+		$.ajax({
+			// url:pre_url+'&op=test',
+			url: pre_url + '&op=get_product_type', //获取产品类别
+			// url:pre_url+'&op=get_product',//获取产品数据 可选参数 tid:产品类别ID,id:产品ID,p:页码
 
-		// 	// url:pre_url+'&op=save_message',//留言 参数 name,phone,msg, data:{name:'jack',phone:'18222939377','msg':'aaaaaaaa哈哈哈哈哈'},
-		// 	// url:pre_url+'&op=register',//注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
-		// 	// url: pre_url + '&op=login',//登录 参数 mobile,password
-		// 	type: 'get',
-		// 	dataType: 'jsonp',
-		// 	jsonp: 'callback',
-		// 	success: function (mes) {
-		// 		console.log(mes)
-		// 		Handlebars.registerHelper('cp-header-helper', function (data) {
-		// 			var tpl = '';
-		// 			data.map(function (item, index) {
-		// 				if (index == 0) {
-		// 					tpl += "<div class='nav col-l'>" + item.name + "</div>";
-		// 				} else {
-		// 					tpl += "<div class='nav'>" + item.name + "</div>";
-		// 				}
-		// 			})
-		// 			return new Handlebars.SafeString(tpl);
-		// 		});
-		// 		var cpHeaderTpl = $('#cp-header').html();
-		// 		var cpHeaderCpl = Handlebars.compile(cpHeaderTpl);
-		// 		var cpHeaderDpl = cpHeaderCpl(mes);
-		// 		$('.cp-header').html(cpHeaderDpl);
-
-		// 	}
-		// })
-
-		// mui.ajax(pre_url+'&op=get_product_type', {
-		// 	type: 'get',
-		// 	success: function (mes) {
-		// 		console.log(mes)
-		// 		var testText = ''
-		// 		for (const key in mes) {
-		// 			if (mes.hasOwnProperty(key)) {
-		// 				const element = mes[key];
-		// 				testText += key +':'+ mes[key] + '</br>';
-		// 			}
-		// 		}
-		// 		$('.test').text(testText);
-		// 		Handlebars.registerHelper('cp-header-helper', function (data) {
-		// 			var tpl = '';
-		// 			data.map(function (item, index) {
-		// 				if (index == 0) {
-		// 					tpl += "<div class='nav col-l'>" + item.name + "</div>";
-		// 				} else {
-		// 					tpl += "<div class='nav'>" + item.name + "</div>";
-		// 				}
-		// 			})
-		// 			return new Handlebars.SafeString(tpl);
-		// 		});
-		// 		var cpHeaderTpl = $('#cp-header').html();
-		// 		var cpHeaderCpl = Handlebars.compile(cpHeaderTpl);
-		// 		var cpHeaderDpl = cpHeaderCpl(mes);
-		// 		$('.cp-header').html(cpHeaderDpl);
-
-		// 	}
-		// })
-
+			// url:pre_url+'&op=save_message',//留言 参数 name,phone,msg, data:{name:'jack',phone:'18222939377','msg':'aaaaaaaa哈哈哈哈哈'},
+			// url:pre_url+'&op=register',//注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
+			// url: pre_url + '&op=login',//登录 参数 mobile,password
+			type: 'get',
+			dataType: 'jsonp',
+			jsonp: 'callback',
+			success: function (mes) {
+				var tpl = template('cp-header', mes);
+				$('.nav-list').html(tpl)
+			}
+		})
 		// 获取产品列表
 		$.ajax({
-			url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+			url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
 			type: 'post',
 			dataType: 'jsonp',
 			jsonp: 'callback',
@@ -556,108 +535,14 @@
 
 
 
-		mui('#index-scroll').scroll();
-
-
-		// header事件
-		mui('.mui-bar').on('tap', '#mbtn', function () {
-			mui('.mui-off-canvas-wrap').offCanvas('toggle');
-		})
-		mui('.mui-bar').on('tap', "#dj", function () {
-			var btnArray = ['拨打', '取消'];
-			var phone = "12315";
-			mui.confirm('' + phone + '', '打假电话', btnArray, function (e) {
-				if (e.index == 0) {
-					plus.device.dial(phone, false);
-				}
-			});
-		})
-
-		// tabbar事件
-		mui('.sjbg').on('tap', '#alertBtn', function () {
-			mui.alert('搜索"天津塘沽一阀"', '欢迎关注公众号', function () {});
-
-		})
-		mui('.sjbg').on('tap', '#telephone', function () {
-			var btnArray = ['拨打', '取消'];
-			var phone = "13821111191";
-			mui.confirm('' + phone + '', '客服电话', btnArray, function (e) {
-				if (e.index == 0) {
-					plus.device.dial(phone, false);
-				}
-			});
-		})
-		mui('#liuyan')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'subpage/kf.html',
-				id: 'subpage/kf.html',
-				styles: {
-					popGesture: 'close' // 'hide', 'close','none' 此处是关键
-				}
-			})
-		})
-
-		// 首页1
-		mui('#qyjj')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'my/company_profile.html',
-				id: 'my/company_profile.html'
-			});
-		})
-		mui('#dlwz')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'my/map.html',
-				id: 'my/map.html'
-			});
-		})
-		mui('#gytgyf')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'my/regard.html',
-				id: 'my/regard.html'
-			});
-		})
-		mui('#a1')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'subpage/league.html',
-				id: 'subpage/league.html'
-			});
-		})
-
-
-		// 导航
-		mui('#tit').on('tap', 'span', function () {
-			var i = $(this).index();
-			if (i == 0) {
-				$('.sjbg').show()
-			} else {
-				$('.sjbg').hide()
-			}
-			$(this).addClass('select').siblings().removeClass('select');
-			$('#con li').eq(i).show().siblings().hide();
-		});
-		// 搜索框
-		mui('.cp-header').on('tap', '.suo', function () {
-			$(".ss_1").fadeToggle(0)
-		})
-		// 产品导航
-		mui('.cp-header').on('tap', '.nav', function () {
-			var moveX = $(this).position().left + $(this).parent().scrollLeft();
-			var pageX = document.documentElement.clientWidth;
-			var blockWidth = $(this).width();
-			console.log(moveX)
-			console.log(pageX);
-			console.log(blockWidth);
-			var left = moveX - (pageX / 2) + (blockWidth / 2);
-			$(this).css("color", "red").siblings().css("color", "#FFFFFF");
-			$(".cp-header ").scrollLeft(left);
-		})
 
 
 		$(function () {
 			mui("#tuichu")[0].addEventListener("tap", function () {
 				$(".appName").remove()
-
 			})
+			// 初始化
+			mui('#index-scroll').scroll();
 		})
 
 		mui.oldback = mui.back;
