@@ -83,11 +83,17 @@ mui('#tit').on('tap', 'span', function () {
         $('.sjbg').hide();
     }
     $(this).addClass('select').siblings().removeClass('select');
-    $('#con li').eq(i).show().siblings().hide();
+    $('#con>div').eq(i).show().siblings().hide();
 });
 // 搜索框
 mui('.cp-header').on('tap', '.suo', function () {
+
     $(".ss_1").fadeToggle(0);
+    var h = $('.cp-header').outerHeight();
+    console.log(h);
+    $('.view-cell2').animate({
+        top: h
+    });
 });
 // 产品导航
 mui('.cp-header').on('tap', '.nav', function () {

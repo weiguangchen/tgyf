@@ -7,9 +7,17 @@ mui('#menu-wlxs')[0].addEventListener('tap', function () {
         }
     });
 })
-mui('#menu-zcdl')[0].addEventListener('tap', function () {
+mui('#menu-zc')[0].addEventListener('tap', function () {
     mui.openWindow({
         url: 'subpage/personal.html', id: 'subpage/personal.html',
+        styles: {
+            popGesture: 'close' // 'hide', 'close','none' 此处是关键
+        }
+    });
+})
+mui('#menu-dl')[0].addEventListener('tap', function () {
+    mui.openWindow({
+        url: 'subpage/login.html', id: 'subpage/login.html',
         styles: {
             popGesture: 'close' // 'hide', 'close','none' 此处是关键
         }

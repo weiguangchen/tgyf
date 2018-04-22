@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/fm.css">
 	<link rel="stylesheet" href="css/mui.min.css">
 	<link rel="stylesheet" href="css/css/mui_reset.css">
-	<link rel="stylesheet" href="css/css/index.css">
+	<link rel="stylesheet" href="css/css/index/index.css">
 	<script src="js/rem.js"></script>
 	<!-- Demo styles -->
 	<style>
@@ -122,9 +122,8 @@
 			overflow-x: scroll;
 			background: #000000;
 			color: #FFFFFF;
-			margin-top: -23px;
 			line-height: 55px;
-			position: fixed;
+			/* position: fixed; */
 		}
 
 
@@ -223,8 +222,16 @@
 							<div class="hyzx_tu">
 								<img src="img/Shape 96.png" />
 							</div>
-							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/personal.html',id:'subpage/personal.html'});" id="menu-zcdl">
-								<P>注册登录</P>
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/personal.html',id:'subpage/personal.html'});" id="menu-zc">
+								<P>注册</P>
+							</div>
+						</div>
+						<div class="cnlx">
+							<div class="hyzx_tu">
+								<img src="img/Shape 96.png" />
+							</div>
+							<div class="hyzx_wenzi" onclick="mui.openWindow({url:'subpage/personal.html',id:'subpage/login.html'});" id="menu-dl">
+								<P>登录</P>
 							</div>
 						</div>
 						<div class="cnlx">
@@ -299,142 +306,135 @@
 
 			<!-- 主页面内容容器 -->
 			<div class="mui-content mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<div style="height:100vh;">
-						<div id="wrap">
-							<div id="tit">
-								<span class="select">企业文化</span>
-								<span>产品中心</span>
-								<span>新闻动态</span>
+				<div class="mui-scroll  main-page">
+					<div id="tit">
+						<span class="select">企业文化</span>
+						<span>产品中心</span>
+						<span>新闻动态</span>
+					</div>
+					<div id="con">
+						<div class="show view-cell">
+							<div class="sy_tu">
+								<div class="wenzi_t" id="qyjj">
+									<p>企业简介</p>
+									<img src="img/icon.png" />
+								</div>
 							</div>
-							<div class="mui-scroll-wrapper" id="index-scroll">
+							<div class="sy_tu1">
+								<div class="wenzi_t" id="dlwz">
+									<p>地理位置</p>
+									<img src="img/icon.png" />
+								</div>
+							</div>
+							<div class="sy_tu2">
+								<img src="img/zsjm.png" id="a1" style="width:35%;position: absolute;top:40%;left:.2rem;z-index: 999;" />
+								<div class="wenzi_t" id="gytgyf">
+									<p>关于塘沽一阀</p>
+									<img src="img/icon.png" />
+								</div>
+							</div>
+							<div style="width: 100%;height: 1.5rem;"></div>
+						</div>
+						<div class="view-cell">
+							<div class="cp-header">
+								<div class="txk">
+									<div class="suo">
+										<img src="img/cz.png" style="width:100%" />
+									</div>
+									<div class="nav-list"></div>
+								</div>
+								<div class="ss_1">
+									<div class="kl">
+										<input type="text" placeholder="">
+										<button>搜索</button>
+									</div>
+								</div>
+							</div>
+							
+							<div class='view-cell2'>
+								<div class="mui-scroll-wrapper" id="index-scroll2">
+									<div class="mui-scroll">
+										<div class="fis_tu" style="width: 95%;height:100vh;margin:0.2rem auto;">
+											
+											<div class="leftimg">
+												<img src="img/qf_1.jpg" />
+											</div>
+											<div class="rightimg">
+												<img src="img/qf_2.jpg" />
+											</div>
+											<div class="leftimg">
+												<img src="img/qf_3.jpg" />
+											</div>
+											<div class="rightimg">
+												<img src="img/qf_4.jpg" />
+											</div>
+											<div class="leftimg">
+												<img src="img/qf_5.jpg" />
+											</div>
+											<div class="rightimg">
+												<img src="img/qf_6.jpg" />
+											</div>
+											<div class="leftimg">
+												<img src="img/qf_7.jpg" />
+											</div>
+											<div class="rightimg">
+												<img src="img/qf_8.jpg" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="view-cell">
+							<div class="mui-scroll-wrapper" id="index-scroll3">
 								<div class="mui-scroll">
-									<ul id="con">
-										<li class="show">
-											<div class="sy_tu">
-												<div class="wenzi_t" id="qyjj">
-													<p>企业简介</p>
-													<img src="img/icon.png" />
+									<ul class="mui-table-view" id="news">
+										
+										<!-- <li class="mui-table-view-cell mui-media">
+											<a href="javascript:;">
+												<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+												<div class="mui-media-body">
+													木屋
+													<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
 												</div>
-											</div>
-											<div class="sy_tu1">
-												<div class="wenzi_t" id="dlwz">
-													<p>地理位置</p>
-													<img src="img/icon.png" />
-												</div>
-											</div>
-											<div class="sy_tu2">
-												<img src="img/zsjm.png" id="a1" style="width:35%;position: absolute;top:40%;left:.2rem;z-index: 999;" />
-												<div class="wenzi_t" id="gytgyf">
-													<p>关于塘沽一阀</p>
-													<img src="img/icon.png" />
-												</div>
-											</div>
-											<div style="width: 100%;height: 1.5rem;"></div>
+											</a>
 										</li>
-										<li>
-											<div class="cp-header">
-												<div class="txk">
-													<div class="suo">
-														<img src="img/cz.png" style="width:100%" />
-													</div>
-													<div class="nav-list">
+										<li class="mui-table-view-cell mui-media">
+											<a href="javascript:;">
+												<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
+												<div class="mui-media-body">
+													CBD
+													<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+												</div>
+											</a>
+										</li> -->
 
-													</div>
-
-												</div>
-											</div>
-
-											<div class="fis_tu" style="width: 95%;height:100vh;margin: .8rem auto;">
-												<div class="ss_1">
-													<div class="kl">
-														<input type="text" placeholder="">
-														<button>搜索</button>
-													</div>
-												</div>
-												<div class="leftimg">
-													<img src="img/qf_1.jpg" />
-												</div>
-												<div class="rightimg">
-													<img src="img/qf_2.jpg" />
-												</div>
-												<div class="leftimg">
-													<img src="img/qf_3.jpg" />
-												</div>
-												<div class="rightimg">
-													<img src="img/qf_4.jpg" />
-												</div>
-												<div class="leftimg">
-													<img src="img/qf_5.jpg" />
-												</div>
-												<div class="rightimg">
-													<img src="img/qf_6.jpg" />
-												</div>
-												<div class="leftimg">
-													<img src="img/qf_7.jpg" />
-												</div>
-												<div class="rightimg">
-													<img src="img/qf_8.jpg" />
-												</div>
-											</div>
-
-										</li>
-										<li>
-											<ul class="mui-table-view">
-												<li class="mui-table-view-cell mui-media">
-													<a href="javascript:;">
-														<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
-														<div class="mui-media-body">
-															幸福
-															<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-														</div>
-													</a>
-												</li>
-												<li class="mui-table-view-cell mui-media">
-													<a href="javascript:;">
-														<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
-														<div class="mui-media-body">
-															木屋
-															<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-														</div>
-													</a>
-												</li>
-												<li class="mui-table-view-cell mui-media">
-													<a href="javascript:;">
-														<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
-														<div class="mui-media-body">
-															CBD
-															<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-														</div>
-													</a>
-												</li>
-
-											</ul>
-											<!-- <div class="new_kuai">
-												<h4>FlowEx国际泵管阀展</h4>
-												<P class="xo"></P>
-											</div>
-											<div class="new_kuai">
-												<h4>列入国家重大技术</h4>
-
-												<P class="xx"></P>
-											</div>
-											<div class="new_kuai">
-												<h4>FlowEx国际泵管阀展</h4>
-												<P class="xox"> </P>
-											</div> -->
-											<div style="width: 90%;margin: .5rem auto 1rem auto;">
-												<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;">更新</button>
-											</div>
-
-										</li>
 									</ul>
 								</div>
 
 							</div>
+							
+							<!-- <div class="new_kuai">
+								<h4>FlowEx国际泵管阀展</h4>
+								<P class="xo"></P>
+							</div>
+							<div class="new_kuai">
+								<h4>列入国家重大技术</h4>
+
+								<P class="xx"></P>
+							</div>
+							<div class="new_kuai">
+								<h4>FlowEx国际泵管阀展</h4>
+								<P class="xox"> </P>
+							</div> -->
+							<div style="width: 90%;margin: .5rem auto 1rem auto;">
+								<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;">更新</button>
+							</div>
 
 						</div>
 					</div>
+					
 				</div>
 				<div class="sjbg">
 					<div class="sbnkb" id="alertBtn">
@@ -473,13 +473,27 @@
 					<%= data[i].name %>
 				</div>
 				<% }else{ %>
-					<div class='nav'>
-						<%= data[i].name %>
-					</div>
-					<% } %>
-						<% } %>
+				<div class='nav'>
+					<%= data[i].name %>
+				</div>
+			<% } %>
+		<% } %>
 	</script>
-
+	<script  type="text/html" id="news-item">
+		<% for(var i=0;i<data.length;i++){ %>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+					<div class="mui-media-body">
+						<%= data[i].post_title %>
+						<p class='mui-ellipsis'>
+								<%= data[i].post_excerpt %>
+						</p>
+					</div>
+				</a>
+			</li>
+		<% } %>
+	</script>
 	<script>
 		if (window.plus) {
 			plusReady();
@@ -498,6 +512,7 @@
 
 			}
 		}
+
 		var tmp = Date.parse(new Date()).toString();
 		var time = tmp.substr(0, 10); //发起请求时间
 		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
@@ -528,12 +543,21 @@
 			jsonp: 'callback',
 			success: function (mes) {
 				console.log(mes)
-
-
 			}
 		})
 
-
+		// 获取新闻列表
+		$.ajax({
+			url: pre_url+'&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+			type: 'post',
+			dataType: 'jsonp',
+			jsonp: 'callback',
+			success: function (mes) {
+				console.log(mes)
+				var newsItem = template('news-item',mes);
+				$('#news').html(newsItem);
+			}
+		})
 
 
 
@@ -542,7 +566,9 @@
 				$(".appName").remove()
 			})
 			// 初始化
-			mui('#index-scroll').scroll();
+			mui('#index-scroll1').scroll();
+			mui('#index-scroll2').scroll();
+			mui('#index-scroll3').scroll();
 		})
 
 		mui.oldback = mui.back;
@@ -561,7 +587,7 @@
 		}
 	</script>
 	<script>
-		var menuButton = document.querySelector('.menu-button');
+		// var menuButton = document.querySelector('.menu-button');
 		// var swiper = new Swiper('.swiper-container', {
 		// 	slidesPerView: 'auto',
 		// 	initialSlide: 1,
@@ -595,7 +621,7 @@
 
 
 
-		$(function () {
+		/* $(function () {
 			$(".xo").overTexts({
 				texts: 'FlowEx国际泵管阀展将在上海世博展览馆举行发布时间：2015-02-12 08:59 发布者：admin 代表华东最高品质的FlowEx国际泵管阀展将于2012年6月6日-8日在上海世博展览馆盛大开幕。本届规模为20,000平米，参展商逾400家。荷瑞会展诚邀您参观本届上海泵管阀展！ 作为世界级的展会，上海泵管阀展涵盖40%的国际展商，业内巨头纷纷参展。日本展商有IWAKI、日东精工、久保田、川本水泵、百事德机械等；德国展商有KSB、瑞茨水泵、NORRES（诺瑞）工业软管、宝德等；美国展商有Xylem（原ITT）、滨特尔、IDEX 、NUTORK、固瑞克等；除此之外，瑞士乔治费歇尔、意大利ODE、沙特博禄集团、丹麦DANFOSS等世界一线泵阀管道展商已加入到FlowEx的阵营，为不同行业领域的企业就装备升级、工程建造、经销代理及响应节能减排等各方面作好准备。    展会注重与行业协会紧密合作，上海机械工程学会流体工程专业委员会和上海建筑学会建筑给水排水专业委员会作为协办单位，将与主办方共同实现行业间的交流互动。他们将组织 “上海机械工程学会展团”和“上海建筑给水排水展团”，向广大专业观众展示最新处理技术和解决方案。',
 				textLength: "103",
@@ -619,42 +645,42 @@
 				openText: "收起",
 				ooType: "2"
 			})
-		});
+		}); */
 
 
 
-		function drag() {
-			var obj = $('#a1');
-			obj.bind('mousedown', start);
+		// function drag() {
+		// 	var obj = $('#a1');
+		// 	obj.bind('mousedown', start);
 
-			function start(e) {
-				var ol = obj.offset().left;
-				var ot = obj.offset().top;
-				deltaX = e.pageX - ol;
-				deltaY = e.pageY - ot;
-				$(document).bind({
-					'mousemove': move,
-					'mouseup': stop
-				});
-				return false;
-			}
+		// 	function start(e) {
+		// 		var ol = obj.offset().left;
+		// 		var ot = obj.offset().top;
+		// 		deltaX = e.pageX - ol;
+		// 		deltaY = e.pageY - ot;
+		// 		$(document).bind({
+		// 			'mousemove': move,
+		// 			'mouseup': stop
+		// 		});
+		// 		return false;
+		// 	}
 
-			function move(e) {
-				obj.css({
-					"left": (e.pageX - deltaX),
-					"top": (e.pageY - deltaY)
-				});
-				return false;
-			}
+		// 	function move(e) {
+		// 		obj.css({
+		// 			"left": (e.pageX - deltaX),
+		// 			"top": (e.pageY - deltaY)
+		// 		});
+		// 		return false;
+		// 	}
 
-			function stop() {
-				$(document).unbind({
-					'mousemove': move,
-					'mouseup': stop
-				});
-			}
-		}
-		drag();
+		// 	function stop() {
+		// 		$(document).unbind({
+		// 			'mousemove': move,
+		// 			'mouseup': stop
+		// 		});
+		// 	}
+		// }
+		// drag();
 	</script>
 </body>
 

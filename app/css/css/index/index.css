@@ -1,0 +1,51 @@
+.txk {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .txk .suo {
+    width: 50px;
+    height: 55px;
+    background: #000000;
+    padding: .2rem; }
+  .txk .col-l {
+    color: red; }
+  .txk .nav-list {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+    .txk .nav-list .nav {
+      display: inline-block;
+      margin-left: 15px;
+      margin-right: 10px;
+      font-size: .28rem; }
+
+.main-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 44px;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .main-page #con {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+    .main-page #con .view-cell {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    .main-page #con .view-cell2 {
+      position: absolute;
+      top: 55px;
+      left: 0;
+      right: 0;
+      bottom: 0; }
