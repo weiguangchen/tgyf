@@ -1,81 +1,111 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<link rel="stylesheet" href="../css/app.css" />
-		<link rel="stylesheet" href="../css/imageview.css" />
-		<link rel="stylesheet" href="../css/fm.css" />
-		<link rel="stylesheet" href="../css/css/mui_reset.css">					
-		<script src="../js/rem.js"></script>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="../css/mui.min.css">
+	<link rel="stylesheet" href="../css/app.css" />
+	<link rel="stylesheet" href="../css/imageview.css" />
+	<link rel="stylesheet" href="../css/fm.css" />
+	<link rel="stylesheet" href="../css/css/mui_reset.css">
+	<script src="../js/rem.js"></script>
+</head>
 
-	<body>
-		<div class="title">
-			<div class="fm_left mui-action-back mui-pull-left">
-				<img src="../img/fh.png"/>
-			</div>
-			<div class="fm_middle">
-				<P>招商加盟</P>
-			</div>
-			<div class="fm_right">
-				
-			</div>
+<body>
+	<div class="title">
+		<div class="fm_left mui-action-back mui-pull-left">
+			<img src="../img/fh.png" />
 		</div>
-		<div class="nr">
-			<div class="zsjm">
-				<div class="zsjm_logo">
-					<img src="../img/1.jpg" />
-				</div>
-				<p>塘沽一阀</p>
-				<span style="font-size: .25rem;">诚招全国代理</span><br />
-				<span style="color: #CCCCCC;">www.tvi.cn</span>
+		<div class="fm_middle">
+			<P>招商加盟</P>
+		</div>
+		<div class="fm_right">
+
+		</div>
+	</div>
+	<div class="nr">
+		<div class="zsjm">
+			<div class="zsjm_logo">
+				<img src="../img/1.jpg" />
 			</div>
-			<div class="ncdxf">
-				 <div class="zsjm_tuwen">
-				 	<div class="tu_left" onclick="mui.openWindow({url:'case.html',id:'case.html'});">
-				 		<img src="../img/tupian.png" />
-				 	</div>
-				 	<div class="tu_middle">
-				 		<img src="../img/al.png" />
-				 	</div>
-				 	<div class="tu_right">
-				 		<img src="../img/zs.png" onclick="mui.openWindow({url:'knowledge.html',id:'knowledge.html'});"/>
-				 	</div>
-				 </div>
-				<div class="ncdxf_foot">
-					<div class="ncssj" id="alertBtn">
-						<img src="../img/ds.png" />
-					</div>
-					<div class="ncssj" id="telephone">
-						<img src="../img/phone_2.png" />
-					</div>
-					<div class="ncssj" style="border-right:none;" onclick="mui.openWindow({url:'kf.html',id:'kf.html'});">
-						<img src="../img/kf.png" style="width: 24%;padding-top: .2rem;"/>
-					</div>
+			<p>塘沽一阀</p>
+			<span style="font-size: .25rem;">诚招全国代理</span>
+			<br />
+			<span style="color: #CCCCCC;">www.tvi.cn</span>
+		</div>
+		<div class="ncdxf">
+			<div class="zsjm_tuwen">
+				<div class="tu_left" id="khal">
+					<img src="../img/tupian.png" />
+				</div>
+				<div class="tu_middle">
+					<img src="../img/al.png" />
+				</div>
+				<div class="tu_right">
+					<img src="../img/zs.png" id="fmzs" />
 				</div>
 			</div>
+			<div class="ncdxf_foot">
+				<div class="ncssj" id="alertBtn">
+					<img src="../img/ds.png" />
+				</div>
+				<div class="ncssj" id="telephone">
+					<img src="../img/phone_2.png" />
+				</div>
+				<div class="ncssj" id="liuyan" style="border-right:none;">
+					<img src="../img/kf.png" style="width: 24%;padding-top: .2rem;" />
+				</div>
+			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
-		<script src="../js/jquery-3.2.1.min.js"></script>
-		<script>
-			 document.getElementById("alertBtn").addEventListener('tap', function() {
-				mui.alert('搜索 "天津塘沽一阀"', '欢迎关注公众号', function() {
-				});
+	</div>
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script>
+		document.getElementById("alertBtn").addEventListener('tap', function () {
+			mui.alert('搜索 "天津塘沽一阀"', '欢迎关注公众号', function () {});
+		});
+		document.getElementById("telephone").addEventListener('tap', function () {
+			var btnArray = ['拨打', '取消'];
+			var phone = "13821111191";
+			mui.confirm('' + phone + '', '客服电话', btnArray, function (e) {
+				if (e.index == 0) {
+					plus.device.dial(phone, false);
+				}
 			});
-			document.getElementById("telephone").addEventListener('tap', function() {
-				var btnArray = ['拨打', '取消'];
-				var phone = "13821111191";
-				mui.confirm('' + phone + '', '客服电话', btnArray, function(e) {
-					if(e.index == 0) {
-						plus.device.dial(phone, false);
-					}
-				});
-			})	
-		</script>
-	</body>
+		})
+
+		mui('#liuyan')[0].addEventListener('tap', function () {
+			mui.openWindow({
+				url: 'kf.html',
+				id: 'kf.html',
+				styles: {
+					popGesture: 'close' // 'hide', 'close','none' 此处是关键
+				}
+			});
+		})
+
+		mui('#fmzs')[0].addEventListener('tap', function () {
+			mui.openWindow({
+				url: 'knowledge.html',
+				id: 'knowledge.html',
+				styles: {
+					popGesture: 'close' // 'hide', 'close','none' 此处是关键
+				}
+			});
+		})
+
+		mui('#khal')[0].addEventListener('tap', function () {
+			mui.openWindow({
+				url: 'case.html',
+				id: 'case.html',
+				styles: {
+					popGesture: 'close' // 'hide', 'close','none' 此处是关键
+				}
+			});
+		})
+	</script>
+</body>
 
 </html>

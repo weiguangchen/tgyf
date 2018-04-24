@@ -462,7 +462,6 @@
 	<script src="js/js/menu.js"></script>
 	<script src="js/template-web.js"></script>
 	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
-	<script src="https://cdn.bootcss.com/handlebars.js/4.0.11/handlebars.min.js"></script>
 	<script src="js/js/index/index.js">
 	</script>
 	<!-- 商品类别 -->
@@ -481,7 +480,7 @@
 	</script>
 	<script  type="text/html" id="news-item">
 		<% for(var i=0;i<data.length;i++){ %>
-			<li class="mui-table-view-cell mui-media">
+			<li class="mui-table-view-cell mui-media" data-id='<%= data[i].object_id %>'>
 				<a href="javascript:;">
 					<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
 					<div class="mui-media-body">
@@ -502,16 +501,40 @@
 		}
 
 		function plusReady() {
-			if (plus.runtime.isApplicationExist({
-					pname: 'com.tencent.mm',
-					action: 'weixin://'
-				})) {
-				console.log("微信应用已安装");
-			} else {
-				console.log("微信应用未安装");
+			mui.init({
+                preloadPages: [{
+                    id: './subpage/wenz.html',
+                    url: './subpage/wenz.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
+					}
+                }]
+			})
+			
+			var detailPage = null;
 
-			}
+			// 文章
+			mui('#news').on('tap','.mui-media',function(){
+				var id = this.getAttribute('data-id');
+				//获得详情页面
+				if (!detailPage) {
+					detailPage = plus.webview.getWebviewById('./subpage/wenz.html');
+				}
+				//触发详情页面的newsId事件
+				mui.fire(detailPage,'newsId',{
+					id:id,
+					mes:window.newsInfo.data
+				});
+				//打开详情页面          
+				mui.openWindow({
+					id:'./subpage/wenz.html'
+				});
+			})
+			
 		}
+
+
+
 
 		var tmp = Date.parse(new Date()).toString();
 		var time = tmp.substr(0, 10); //发起请求时间
@@ -554,6 +577,7 @@
 			jsonp: 'callback',
 			success: function (mes) {
 				console.log(mes)
+				window.newsInfo = mes;
 				var newsItem = template('news-item',mes);
 				$('#news').html(newsItem);
 			}
@@ -561,7 +585,9 @@
 
 
 
+
 		$(function () {
+
 			mui("#tuichu")[0].addEventListener("tap", function () {
 				$(".appName").remove()
 			})

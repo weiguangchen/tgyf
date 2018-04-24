@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link href="../css/fm.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/css/mui_reset.css">
+    <script src="../js/rem.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <div class="fm_left mui-action-back mui-pull-left">
+            <img src="../img/fh.png" />
+        </div>
+        <!--<div class="fm_left" onclick="mui.openWindow({url:'../index.html',id:'../index.html'});">
+				<img src="../img/List.png"  />
+			</div>-->
+        <div class="fm_middle">
+            <P id="title"> </P>
+        </div>
+        <div class="fm_right">
+
+        </div>
+    </div>
+    <div class="nr">
+        <h4 style="margin:.5rem .3rem;"></h4>
+        <div id="newsInfo">
+            <!-- <P style="text-indent:1cm;font-size: .28rem;">
+
+            </P> -->
+
+        </div>
+
+    </div>
+    <script src="../js/mui.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="../js/template-web.js"></script>
+    
+    <script type="text/javascript">
+        if (window.plus) {
+            plusReady();
+        } else {
+            document.addEventListener("plusready", plusReady, false);
+        }
+
+        function plusReady() {
+            mui.init({
+                swipeBack: true //启用右滑关闭功能
+            });
+
+        }
+        //添加newId自定义事件监听
+        window.addEventListener('newsId', function (event) {
+            //获得事件参数
+            var id = event.detail.id;
+            var mes = event.detail.mes;
+            //根据id向服务器请求新闻详情
+            console.log(id)
+            mes.forEach(function (item, index) {
+                if (item.object_id == id) {
+                    $('#newsInfo').html(item.post_content);
+                    $('#title').text(item.post_title);
+                    return false;
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

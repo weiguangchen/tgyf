@@ -125,3 +125,5 @@ mui('.rightimg').on('tap', 'img', function () {
         }
     })
 })
+
+

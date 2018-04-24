@@ -10,7 +10,15 @@
 	<link href="../css/fm.css" rel="stylesheet" />
 	<link href="../css/ydui.css" rel="stylesheet" />
 	<link rel="stylesheet" href="../css/css/mui_reset.css">
+	<script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
 	<script src="../js/rem.js"></script>
+	<script>
+		if ('addEventListener' in document) {
+			document.addEventListener('DOMContentLoaded', function () {
+				FastClick.attach(document.body);
+			}, false);
+		}
+	</script>
 	<style>
 		.userInfo {
 			height: 90px;
@@ -242,12 +250,12 @@
 				return false;
 			} else {
 				$.ajax({
-					url: pre_url + '&op=register',//注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
+					url: pre_url + '&op=register', //注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
 					type: 'post',
 					data: {
-						moblie:phone,
-						password:pwd,
-						nickname:nickname
+						moblie: phone,
+						password: pwd,
+						nickname: nickname
 					},
 					dataType: 'jsonp',
 					jsonp: 'callback',
