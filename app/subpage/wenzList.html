@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link href="../css/fm.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/css/mui_reset.css">
+    <script src="../js/rem.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <div class="fm_left mui-action-back mui-pull-left">
+            <img src="../img/fh.png" />
+        </div>
+        <div class="fm_middle">
+            <P id="title">售后服务</P>
+        </div>
+        <div class="fm_right">
+
+        </div>
+    </div>
+    <div style="position: absolute;top: 44px;left:0;right:0;bottom:0;">
+        <div class="mui-scroll-wrapper" id="mscroll">
+            <div class="mui-scroll">
+                <ul class="mui-table-view" id="newslist">
+
+    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/JQ_1.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/kk.js"></script>
+    <script src="../js/js/menu.js"></script>
+    <script src="../js/template-web.js"></script>
+    <script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
+    <script type='text/html' id="news">
+        <% for(var i=0;i<data.length;i++){ %>
+            <li class="mui-table-view-cell mui-media" data-id='<%= data[i].object_id %>'>
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="<%= data[i].thumb %>">
+                    <div class="mui-media-body">
+                        <%= data[i].post_title %>
+                            <p class='mui-ellipsis'>
+                                <%= data[i].post_excerpt %>
+                            </p>
+                    </div>
+                </a>
+            </li>
+        <% } %>
+
+    </script>
+    <script type="text/javascript">
+        if (window.plus) {
+            plusReady();
+        } else {
+            document.addEventListener("plusready", plusReady, false);
+        }
+
+        var page = 1,
+            pagesize = 14;
+        var tmp = Date.parse(new Date()).toString();
+        var time = tmp.substr(0, 10); //发起请求时间
+        var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+        var signature = sha1(str); //签名 sha1加密
+        var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+        function plusReady() {
+            mui.init({
+                preloadPages:[{
+					id: './wenz.html',
+					url: './wenz.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
+					}
+				}],
+                pullRefresh: {
+                    container: '#mscroll', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+                    up: {
+                        height: 50, //可选.默认50.触发上拉加载拖动距离
+                        // auto: true, //可选,默认false.自动上拉加载一次
+                        contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+                        contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+                        callback: function () { //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+                            var _this = this;
+                            console.log(window.currentId)
+                            $.ajax({
+                                url: pre_url + '&op=get_news_list2', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+                                type: 'get',
+                                dataType: 'jsonp',
+                                data: {
+                                    id:window.currentId,
+                                    pagesize: pagesize,
+                                    p: page
+                                },
+                                success: function (mes) {
+                                    // console.log(mes)
+                                    // window.newsInfo = window.newsInfo.concat(mes.data);
+                                    var newsItem = template('news', mes);
+                                    $('#newslist').append(newsItem);
+                                    _this.endPullupToRefresh(false);
+                                    console.log(mes.status)
+                                    page++;
+                                    if (mes.status == 0) {
+                                        console.log('没有新闻了')
+                                        _this.endPullupToRefresh(true);
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            })
+
+            var newsDetailPage = null;
+            // 获取文章详情
+            mui('#newslist').on('tap', '.mui-media', function () {
+                var id = this.getAttribute('data-id');
+                //获得详情页面
+                if (!newsDetailPage) {
+                    newsDetailPage = plus.webview.getWebviewById('./wenz.html');
+                }
+                //触发详情页面的newsId事件
+                mui.fire(newsDetailPage, 'newsId', {
+                    id: id
+                });
+                //打开详情页面          
+                mui.openWindow({
+                    id: './wenz.html',
+                    
+                });
+            })
+        }
+        //添加newId自定义事件监听
+        window.addEventListener('newsListId', function (event) {
+            // console.log(window.currentId)
+            // console.log(event.detail.id)
+            var id = event.detail.id;
+            if(event.detail.id != window.currentId){
+                window.currentId = event.detail.id;
+                page = 1;
+                mui('#mscroll').pullRefresh().refresh(true);
+                // console.log('id:'+id)
+                // console.log('page'+page)
+                // console.log('pagesize:'+pagesize)
+                // console.log('重新获取数据')
+                //获取文章列表            
+                $.ajax({
+                    url: pre_url + '&op=get_news_list2', 
+                    type: 'get',
+                    data: {
+                        id: id,
+                        p:page,
+                        pagesize:pagesize
+                    },
+                    dataType: 'jsonp',
+                    success: function (mes) {
+                        // console.log(mes)
+                        console.log('mes.status:'+mes.status)
+                        // console.log('id:'+id)
+                        // console.log('page:'+page)
+                        var newsItem = template('news', mes);
+                        $('#newslist').html(newsItem);
+                        page++;
+                    }
+                })
+                // 获取列表title
+                $.ajax({
+                    url: pre_url + '&op=get_cate_name', 
+                    type: 'get',
+                    data: {
+                        id:id 
+                    },
+                    dataType: 'jsonp',
+                    success: function (mes) {
+                        // console.log(mes)
+                        $('#title').text(mes[0].name);
+
+                    }
+                })
+                
+               
+            }else{
+                console.log('不用')
+            }
+
+            //根据id向服务器请求新闻详情
+            
+        })
+
+       
+    </script>
+</body>
+
+</html>

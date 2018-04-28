@@ -12,7 +12,7 @@
 </head>
 
 <body style="background: #FFFFFF;overflow-x:hidden;overflow-y:hidden;">
-	<div class="title" !important;>
+	<div class="title">
 		<div class="fm_left mui-action-back mui-pull-left">
 			<img src="../img/fh.png" />
 		</div>
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="nr">
-		<div class="gcs">
+		<div class="gcs list" id="gcs" data-id='3'>
 			<div class="gcs_tu">
 				<img src="../img/1.jpg" />
 			</div>
@@ -37,14 +37,14 @@
 			</div>
 		</div>
 		<div class="shfw">
-			<div class="jswz" onclick="mui.openWindow({url:'knowledge.html',id:'knowledge.html'});">
+			<div class="jswz list" id="fmzs" data-id="4">
 				<img src="../img/gs.png" />
 				<h4>阀门知识</h4>
 				<p>
 					球阀质量是企其产品也得到行业的认可和赞誉。它以优良的品质，与社会和谐共生。
 				</P>
 			</div>
-			<div class="szfw">
+			<div class="szfw list" id="szfw" data-id="5">
 				<img src="../img/gs.png" />
 				<h4>售中服务</h4>
 				<p>
@@ -54,7 +54,7 @@
 		</div>
 		<div class="c"></div>
 		<div class="shfw">
-			<div class="jswz">
+			<div class="jswz list" id="shfw" data-id="6">
 				<img src="../img/gs.png" />
 				<h4>售后服务</h4>
 				<p>
@@ -62,17 +62,17 @@
 				</P>
 			</div>
 			<div class="szfw" style="background: #FFFFFF;">
-				<div class="zz" id="zz">
+				<div class="zz " id="zz">
 					<p>资质</p>
 				</div>
-				<div class="zx" id="zx">
+				<div class="zx " id="zx">
 					<p>专线</p>
 				</div>
 				<div class="c"></div>
-				<div class="zz" id="sp">
+				<div class="zz " id="sp">
 					<p>视频</p>
 				</div>
-				<div class="zx" id="yy">
+				<div class="zx " id="yy">
 					<p>应用</p>
 				</div>
 			</div>
@@ -80,25 +80,53 @@
 	</div>
 	<script src="../js/mui.min.js"></script>
 	<script type="text/javascript">
-		mui.init()
-		mui('#zz')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'certificate.html',
-				id: 'certificate.html',
-				styles: {
-					popGesture: 'close' // 'hide', 'close','none' 此处是关键
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+
+		function plusReady() {
+			mui.init({
+				preloadPages: [{
+					id: './wenzList.html',
+					url: './wenzList.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
+					}
+				}],
+			})
+			var newsListPage = null;
+			// 获取文章列表
+			mui('.nr').on('tap', '.list', function () {
+				var id = this.getAttribute('data-id');
+				//获得详情页面
+				if (!newsListPage) {
+					newsListPage = plus.webview.getWebviewById('./wenzList.html');
 				}
-			});
+				//触发详情页面的newsId事件
+				mui.fire(newsListPage, 'newsListId', {
+					id: id
+				});
+				//打开详情页面          
+				mui.openWindow({
+					id: './wenzList.html',
+					
+				});
+			})
+			
+		}
+
+
+		// 资质
+		mui('#zz')[0].addEventListener('tap',function(){
+			mui.openWindow({url:'./certificate.html',id:'./certificate.html',styles: {popGesture: 'close'}});
 		})
-		mui('#yy')[0].addEventListener('tap', function () {
-			mui.openWindow({
-				url: 'industry.html',
-				id: 'industry.html',
-				styles: {
-					popGesture: 'close' // 'hide', 'close','none' 此处是关键
-				}
-			});
+		// 应用
+		mui('#yy')[0].addEventListener('tap',function(){
+			mui.openWindow({url:'./industry.html',id:'./industry.html',styles: {popGesture: 'close'}});
 		})
+
 	</script>
 </body>
 

@@ -38,6 +38,7 @@
     </div>
     <script src="../js/mui.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>    
     <script src="../js/template-web.js"></script>
     
     <script type="text/javascript">
@@ -57,17 +58,30 @@
         window.addEventListener('newsId', function (event) {
             //获得事件参数
             var id = event.detail.id;
-            var mes = event.detail.mes;
+            // var mes = event.detail.mes;
             //根据id向服务器请求新闻详情
             console.log(id)
-            mes.forEach(function (item, index) {
-                if (item.object_id == id) {
-                    $('#newsInfo').html(item.post_content);
-                    $('#title').text(item.post_title);
-                    return false;
+            $('#newsInfo').html('');
+            $('#title').text('');
+            
+            var tmp = Date.parse(new Date()).toString();
+            var time = tmp.substr(0, 10); //发起请求时间
+            var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+            var signature = sha1(str); //签名 sha1加密
+            var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+            $.ajax({
+                url: pre_url + '&op=get_news', //获取文章详情
+                type:'get',
+                data:{
+                    id:id
+                },
+                dataType:'jsonp',
+                success:function(mes){
+                    // console.log(mes)
+                    $('#newsInfo').html(mes.post_content);
+                    $('#title').text(mes.post_title);
                 }
-            });
-
+            })
         })
     </script>
 </body>

@@ -83,6 +83,23 @@ mui('#tit').on('tap', 'span', function () {
     }
     $(this).addClass('select').siblings().removeClass('select');
     $('#con>div').eq(i).show().siblings().hide();
+
+    // 获取产品列表
+    $.ajax({
+        url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+        type: 'post',
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        data: {
+            pagesize: propagesize,
+            p: propage
+        },
+        success: function (mes) {
+            console.log(mes)
+            
+        }
+    })
+
 });
 // 搜索框
 mui('.cp-header').on('tap', '.suo', function () {
@@ -91,21 +108,10 @@ mui('.cp-header').on('tap', '.suo', function () {
     var h = $('.cp-header').outerHeight();
     console.log(h)
     $('.view-cell2').animate({
-        top:h
+        top: h
     })
 })
-// 产品导航
-mui('.cp-header').on('tap', '.nav', function () {
-    var moveX = $(this).position().left + $(this).parent().scrollLeft();
-    var pageX = document.documentElement.clientWidth;
-    var blockWidth = $(this).width();
-    console.log(moveX)
-    console.log(pageX);
-    console.log(blockWidth);
-    var left = moveX - (pageX / 2) + (blockWidth / 2);
-    $(this).css("color", "red").siblings().css("color", "#FFFFFF");
-    $(".cp-header ").scrollLeft(left);
-})
+
 
 
 // 产品

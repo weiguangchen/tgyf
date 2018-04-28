@@ -197,7 +197,7 @@
 </head>
 
 <body>
-
+	
 	<!-- 侧滑导航根容器 -->
 	<div class="mui-off-canvas-wrap mui-draggable">
 		<!-- 主页面容器 -->
@@ -208,7 +208,9 @@
 					<div class="mui-scroll">
 						<div class="userInfo" style="margin-top:.5rem;">
 							<img src="img/1.jpg" class="userImage" id="headImage">
-							<a class="appName">塘沽一阀</a>
+							<a class="appName">
+								
+							</a>
 						</div>
 						<div class="cnlx">
 							<div class="hyzx_tu">
@@ -226,7 +228,7 @@
 								<P>注册</P>
 							</div>
 						</div>
-						<div class="cnlx">
+						<div class="cnlx" id="login-btn">
 							<div class="hyzx_tu">
 								<img src="img/Shape 96.png" />
 							</div>
@@ -350,71 +352,29 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<div class='view-cell2'>
 								<div class="mui-scroll-wrapper" id="index-scroll2">
-									<div class="mui-scroll">
-										<div class="fis_tu" style="width: 95%;height:100vh;margin:0.2rem auto;">
-											
-											<div class="leftimg">
-												<img src="img/qf_1.jpg" />
-											</div>
-											<div class="rightimg">
-												<img src="img/qf_2.jpg" />
-											</div>
-											<div class="leftimg">
-												<img src="img/qf_3.jpg" />
-											</div>
-											<div class="rightimg">
-												<img src="img/qf_4.jpg" />
-											</div>
-											<div class="leftimg">
-												<img src="img/qf_5.jpg" />
-											</div>
-											<div class="rightimg">
-												<img src="img/qf_6.jpg" />
-											</div>
-											<div class="leftimg">
-												<img src="img/qf_7.jpg" />
-											</div>
-											<div class="rightimg">
-												<img src="img/qf_8.jpg" />
-											</div>
+									<div class="mui-scroll" id="pro-scroll">
+										<div class="fis_tu" style="width: 95%;height:100vh;margin:0.2rem auto;" id="pro">
+										
 										</div>
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="view-cell">
 							<div class="mui-scroll-wrapper" id="index-scroll3">
-								<div class="mui-scroll">
+								<div class="mui-scroll" id="news-scroll">
 									<ul class="mui-table-view" id="news">
 										
-										<!-- <li class="mui-table-view-cell mui-media">
-											<a href="javascript:;">
-												<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
-												<div class="mui-media-body">
-													木屋
-													<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-												</div>
-											</a>
-										</li>
-										<li class="mui-table-view-cell mui-media">
-											<a href="javascript:;">
-												<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
-												<div class="mui-media-body">
-													CBD
-													<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-												</div>
-											</a>
-										</li> -->
 
 									</ul>
 								</div>
 
 							</div>
-							
+
 							<!-- <div class="new_kuai">
 								<h4>FlowEx国际泵管阀展</h4>
 								<P class="xo"></P>
@@ -428,13 +388,13 @@
 								<h4>FlowEx国际泵管阀展</h4>
 								<P class="xox"> </P>
 							</div> -->
-							<div style="width: 90%;margin: .5rem auto 1rem auto;">
+							<!-- <div style="width: 90%;margin: .5rem auto 1rem auto;">
 								<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;">更新</button>
-							</div>
+							</div> -->
 
 						</div>
 					</div>
-					
+
 				</div>
 				<div class="sjbg">
 					<div class="sbnkb" id="alertBtn">
@@ -456,41 +416,65 @@
 
 
 	<!-- <script src="js/swiper.js"></script> -->
-	<script src="js/mui.min.js"></script>
+	<script src="js/mui.js"></script>
+	<!-- <script src="js/mui.pullToRefresh.js"></script>
+	<script src="js/mui.pullToRefresh.material.js"></script> -->
 	<script src="js/JQ_1.js"></script>
 	<script src="js/kk.js"></script>
 	<script src="js/js/menu.js"></script>
 	<script src="js/template-web.js"></script>
 	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
-	<script src="js/js/index/index.js">
-	</script>
+	<script src="js/js/index/index.js"></script>
+	<style>
+	.news-item p{
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	</style>
 	<!-- 商品类别 -->
 	<script type="text/html" id="cp-header">
+		<div class='nav col-l' data-id='0'>全部</div>
 		<% for(var i=0;i<data.length;i++){%>
-			<% if(i==0){ %>
-				<div class='nav col-l'>
-					<%= data[i].name %>
-				</div>
-				<% }else{ %>
-				<div class='nav'>
-					<%= data[i].name %>
-				</div>
-			<% } %>
+				<div class='nav' data-id='<%= data[i].id %>'><%= data[i].name %></div>
 		<% } %>
 	</script>
-	<script  type="text/html" id="news-item">
+	<script type="text/html" id="news-item">
 		<% for(var i=0;i<data.length;i++){ %>
 			<li class="mui-table-view-cell mui-media" data-id='<%= data[i].object_id %>'>
 				<a href="javascript:;">
-					<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+					<img class="mui-media-object mui-pull-left" src="<%= data[i].smeta.thumb %>">
 					<div class="mui-media-body">
 						<%= data[i].post_title %>
-						<p class='mui-ellipsis'>
-								<%= data[i].post_excerpt %>
-						</p>
+						<div class='news-item'>
+							<p><%= data[i].post_excerpt %></p> 
+						</div>
 					</div>
 				</a>
 			</li>
+		<% } %>
+	</script>
+	<script type="text/html" id="logined">
+		{{if isLogin}}
+		<span id="username">{{userinfo.user_nicename}}</span><br/>
+		<span id='phone'>{{userinfo.mobile}}</span>
+		{{else}}
+		<span>塘沽一阀</span>
+		{{/if}}
+	</script>
+	<script type="text/html" id="pro-img">
+		<% if(status == 1){ %>
+			<% for(var i=0;i<data.length;i++){  %>
+				<% if(i%2==0){ %>
+					<div class="leftimg proimg" data-id='<%= data[i].id %>'>
+						<img src="<%= data[i].pic %>" />
+					</div>
+				<% }else{ %>
+					<div class="rightimg proimg" data-id='<%= data[i].id %>'>
+						<img src="<%= data[i].pic %>" />
+					</div>
+				<% }%>
+			<% } %>
 		<% } %>
 	</script>
 	<script>
@@ -499,118 +483,402 @@
 		} else {
 			document.addEventListener("plusready", plusReady, false);
 		}
-
-		function plusReady() {
-			mui.init({
-                preloadPages: [{
-                    id: './subpage/wenz.html',
-                    url: './subpage/wenz.html',
-					styles: {
-						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
-					}
-                }]
-			})
-			
-			var detailPage = null;
-
-			// 文章
-			mui('#news').on('tap','.mui-media',function(){
-				var id = this.getAttribute('data-id');
-				//获得详情页面
-				if (!detailPage) {
-					detailPage = plus.webview.getWebviewById('./subpage/wenz.html');
-				}
-				//触发详情页面的newsId事件
-				mui.fire(detailPage,'newsId',{
-					id:id,
-					mes:window.newsInfo.data
-				});
-				//打开详情页面          
-				mui.openWindow({
-					id:'./subpage/wenz.html'
-				});
-			})
-			
-		}
-
-
-
-
+		var newspage = 1,newspagesize=10,newsmax,propage=1,propagesize=10,promax,proCurrentId=0;
 		var tmp = Date.parse(new Date()).toString();
 		var time = tmp.substr(0, 10); //发起请求时间
 		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
 		var signature = sha1(str); //签名 sha1加密
 		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
-		// 获取产品类别
-		$.ajax({
-			// url:pre_url+'&op=test',
-			url: pre_url + '&op=get_product_type', //获取产品类别
-			// url:pre_url+'&op=get_product',//获取产品数据 可选参数 tid:产品类别ID,id:产品ID,p:页码
+		function plusReady() {
+			var finit = mui.init({
+				preloadPages: [{
+					id: './subpage/wenz.html',
+					url: './subpage/wenz.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
+					}
+				},{
+					id: './subpage/ub.html',
+					url: './subpage/ub.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
+					}
+				}],
+				pullRefresh: [
+					{
+						container: '#index-scroll3', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+						up: {
+							height: 50, //可选.默认50.触发上拉加载拖动距离
+							auto: true, //可选,默认false.自动上拉加载一次
+							contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+							contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+							callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+								var _this = this;
+								$.ajax({
+									url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+									type: 'post',
+									dataType: 'jsonp',
+									jsonp: 'callback',
+									data:{
+										pagesize:newspagesize,
+										p:newspage
+									},
+									success: function (mes) {
+										// console.log(mes)
+										// window.newsInfo = window.newsInfo.concat(mes.data);
+										var newsItem = template('news-item', mes);
+										$('#news').append(newsItem);
+										_this.endPullupToRefresh(false);
+										newspage++;
+										if(mes.status == 0){
+											// console.log('没有新闻了')
+											_this.endPullupToRefresh(true);
+										}	
+									}
+								})
+							}
+						}
+					},
+					{
+						container: '#index-scroll2', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+						up: {
+							height: 50, //可选.默认50.触发上拉加载拖动距离
+							auto: true, //可选,默认false.自动上拉加载一次
+							contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+							contentnomore: '没有更多产品了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+							callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+								var _this = this;
+								$.ajax({
+									url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+									type: 'get',
+									dataType: 'jsonp',
+									data:{
+										pagesize:propagesize,
+										p:propage
+									},
+									success: function (mes) {
+										// console.log(mes)
+										promax = mes.cs;
+										var newsItem = template('pro-img', mes);
+										$('#pro').append(newsItem);
+										_this.endPullupToRefresh(false);
+										propage++	
+										if(propage>promax){
+											// console.log('没有产品了')
+											
+											_this.endPullupToRefresh(true);
+										}					
+									}
+								})
+							}
+						}
+					}
+				]
+				
+			})
+			
+			var newsDetailPage = null,proDetailPage = null;
 
-			// url:pre_url+'&op=save_message',//留言 参数 name,phone,msg, data:{name:'jack',phone:'18222939377','msg':'aaaaaaaa哈哈哈哈哈'},
-			// url:pre_url+'&op=register',//注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
-			// url: pre_url + '&op=login',//登录 参数 mobile,password
-			type: 'get',
-			dataType: 'jsonp',
-			jsonp: 'callback',
-			success: function (mes) {
-				var tpl = template('cp-header', mes);
-				$('.nav-list').html(tpl)
-			}
-		})
-		// 获取产品列表
-		$.ajax({
-			url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-			type: 'post',
-			dataType: 'jsonp',
-			jsonp: 'callback',
-			success: function (mes) {
-				console.log(mes)
-			}
-		})
+			// 获取文章详情
+			mui('#news').on('tap', '.mui-media', function () {
+				var id = this.getAttribute('data-id');
+				//获得详情页面
+				if (!newsDetailPage) {
+					newsDetailPage = plus.webview.getWebviewById('./subpage/wenz.html');
+				}
+				//触发详情页面的newsId事件
+				mui.fire(newsDetailPage, 'newsId', {
+					id: id
+				});
+				//打开详情页面          
+				mui.openWindow({
+					id: './subpage/wenz.html',
+					
+				});
+			})
 
-		// 获取新闻列表
-		$.ajax({
-			url: pre_url+'&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-			type: 'post',
-			dataType: 'jsonp',
-			jsonp: 'callback',
-			success: function (mes) {
-				console.log(mes)
-				window.newsInfo = mes;
-				var newsItem = template('news-item',mes);
-				$('#news').html(newsItem);
-			}
-		})
+			//获取产品详情
+			mui('.fis_tu').on('tap', '.proimg', function () {
+				var id = this.getAttribute('data-id');
+				//获得详情页面
+				if (!proDetailPage) {
+					proDetailPage = plus.webview.getWebviewById('./subpage/ub.html');
+				}
+				//触发详情页面的proId事件
+				mui.fire(proDetailPage, 'proId', {
+					id: id
+				});
+				//打开详情页面          
+				mui.openWindow({
+					id: './subpage/ub.html',
+					
+				});
+			})
+
+		}
 
 
 
+
+		
 
 		$(function () {
+			// 初始化所有上拉加载
+			// var pro_pullToRefresh = mui('#pro-scroll').pullToRefresh({
+			// 	up:{
+			// 		contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+			// 		contentnomore: '没有更多产品了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+			// 		// auto:true,
+			// 		callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			// 			var _this = this;
+			// 			$.ajax({
+			// 				url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+			// 				type: 'get',
+			// 				dataType: 'jsonp',
+			// 				data:{
+			// 					pagesize:propagesize,
+			// 					p:propage
+			// 				},
+			// 				success: function (mes) {
+			// 					console.log(mes)
+			// 					// window.proInfo = window.proInfo.concat(mes.data);
+			// 					var newsItem = template('pro-img', mes);
+			// 					$('#pro').append(newsItem);
+			// 					pro_pullToRefresh.endPullUpToRefresh();
+			// 					propage++	
+			// 					console.log(propage,promax)					
+			// 					if(propage>promax){
+			// 						console.log(12313321)
+			// 						pro_pullToRefresh.setStopped(true);
+			// 					}					
+			// 				}
+			// 			})
+			// 		}
+			// 	}
+			// })
+			// var news_pullToRefresh =mui('#news-scroll').pullToRefresh({
+			// 	up:{
+			// 		contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+			// 		contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+			// 		// auto:true,
+			// 		callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			// 			var _this = this;
+			// 			$.ajax({
+			// 				url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+			// 				type: 'get',
+			// 				dataType: 'jsonp',
+			// 				data:{
+			// 					pagesize:newspagesize,
+			// 					p:newspage
+			// 				},
+			// 				success: function (mes) {
+			// 					console.log(mes)
+			// 					// window.newsInfo = window.newsInfo.concat(mes.data);
+			// 					var newsItem = template('news-item', mes);
+			// 					$('#news').append(newsItem);
+			// 					news_pullToRefresh.endPullUpToRefresh();
+			// 					newspage++						
+			// 				}
+			// 			})
+			// 		}
+			// 	}
+			// })
+
+
+			// 获取产品类别
+			$.ajax({
+				// url:pre_url+'&op=test',
+				url: pre_url + '&op=get_product_type', //获取产品类别
+				// url:pre_url+'&op=get_product',//获取产品数据 可选参数 tid:产品类别ID,id:产品ID,p:页码
+
+				// url:pre_url+'&op=save_message',//留言 参数 name,phone,msg, data:{name:'jack',phone:'18222939377','msg':'aaaaaaaa哈哈哈哈哈'},
+				// url:pre_url+'&op=register',//注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
+				// url: pre_url + '&op=login',//登录 参数 mobile,password
+				type: 'get',
+				dataType: 'jsonp',
+				jsonp: 'callback',
+				success: function (mes) {
+					var tpl = template('cp-header', mes);
+					$('.nav-list').html(tpl)
+				}
+			})
+			// 获取产品列表
+			$.ajax({
+				url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+				type: 'post',
+				dataType: 'jsonp',
+				jsonp: 'callback',
+				data:{
+					id:2,
+					pagesize:10,
+					p:1
+				},
+				success: function (mes) {
+					console.log(mes)
+					// promax = mes.cs;					
+					// window.proInfo = mes.data;					
+					// var newsItem = template('pro-img', mes);
+					// $('.fis_tu').html(newsItem);
+					// propage++;
+					// console.log(propage,promax)
+					// if(propage>promax){
+					// 	console.log(12313321)
+					// 	pro_pullToRefresh.setStopped(true);
+					// }
+				}
+			})
+
+			// 获取新闻列表
+			$.ajax({
+				url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+				type: 'post',
+				dataType: 'jsonp',
+				jsonp: 'callback',
+				data:{
+					pagesize:newspagesize,
+					p:newspage
+				},
+				success: function (mes) {
+					// console.log(mes)
+					// window.newsInfo = mes.data;
+					// var newsItem = template('news-item', mes);
+					// $('#news').html(newsItem);
+					// newspage++;
+				}
+			});
+			
+			$.ajax({
+                url: pre_url + '&op=get_news_list2', //获取文章详情
+                type: 'get',
+                data: {
+					id: 4,
+					pagesize:14,
+					p:1
+                },
+                dataType: 'jsonp',
+                success: function (mes) {
+                    // console.log(mes)
+                    // var newsItem = template('news', mes);
+                    // $('#newslist').append(newsItem);
+                    // page++;
+                }
+            })
+			
+			 // 获取列表title
+			 $.ajax({
+                url: pre_url + '&op=get_cate_name', 
+                type: 'get',
+                data: {
+                    id: 1
+                },
+                dataType: 'jsonp',
+                success: function (mes) {
+                    // console.log(mes)
+                    // var newsItem = template('news', mes);
+                    // $('#newslist').append(newsItem);
+                    // page++;
+                }
+            })
+			
+
+			// 产品导航
+			mui('.cp-header').on('tap', '.nav', function () {
+				var id = $(this).attr('data-id');
+				if(proCurrentId != id){
+					var moveX = $(this).position().left + $(this).parent().scrollLeft();
+					var pageX = document.documentElement.clientWidth;
+					var blockWidth = $(this).width();
+					console.log(moveX)
+					console.log(pageX);
+					console.log(blockWidth);
+					var left = moveX - (pageX / 2) + (blockWidth / 2);
+					$(this).css("color", "red").siblings().css("color", "#FFFFFF");
+					$(".cp-header ").scrollLeft(left);
+
+					propage = 1;
+					proCurrentId = id;
+					$('#pro').html('');
+
+					console.log('id:'+id);
+					console.log('pagesize:'+propagesize);
+					console.log('p:'+propage)
+
+					var data = {
+						pagesize:propagesize,
+						p:propage
+					}
+					if(id != 0){
+						$.extend(data,{
+							id:id
+						})
+					}
+
+					$.ajax({
+						url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+						type: 'get',
+						dataType: 'jsonp',
+						jsonp: 'callback',
+						data:data,
+						success: function (mes) {
+							promax = mes.cs;
+							var newsItem = template('pro-img', mes);
+							$('#pro').append(newsItem);
+							propage++;
+						}
+					})
+				}
+				
+				
+
+				// 获取产品列表
+				
+
+			})
 
 			mui("#tuichu")[0].addEventListener("tap", function () {
-				$(".appName").remove()
+				localStorage.removeItem('userinfo');
+				ifLogin();
+				
 			})
 			// 初始化
 			mui('#index-scroll1').scroll();
 			mui('#index-scroll2').scroll();
 			mui('#index-scroll3').scroll();
+			
+			ifLogin();
 		})
 
-		mui.oldback = mui.back;
-		var clickNum = 0;
-		mui.back = function (event) {
-			clickNum++;
-			if (clickNum > 1) {
-				plus.runtime.quit();
-			} else {
-				mui.toast("再按一次退出应用");
+
+		function ifLogin(){
+			window.user = {};
+			if(localStorage.userinfo){
+				var userinfo = JSON.parse(localStorage.userinfo);				
+				window.user.userinfo = userinfo;
+				window.user.isLogin = true;
+				$('#tuichu').show();
+				$('#login-btn').hide();			
+			}else{				
+				window.user.ifLogin = false; 	
+				$('#tuichu').hide();
+				$('#login-btn').show();										
 			}
-			setTimeout(function () {
-				clickNum = 0
-			}, 1000);
-			return false;
+			var tpl = template('logined',window.user);		
+			$('.appName').html(tpl);
 		}
+		// mui.oldback = mui.back;
+		// var clickNum = 0;
+		// mui.back = function (event) {
+		// 	clickNum++;
+		// 	if (clickNum > 1) {
+		// 		plus.runtime.quit();
+		// 	} else {
+		// 		mui.toast("再按一次退出应用");
+		// 	}
+		// 	setTimeout(function () {
+		// 		clickNum = 0
+		// 	}, 1000);
+		// 	return false;
+		// }
 	</script>
 	<script>
 		// var menuButton = document.querySelector('.menu-button');

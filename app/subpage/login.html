@@ -29,7 +29,7 @@
 
         .appName {
             height: 80px;
-            line-height: 100px;
+            /* line-height: 100px; */
             position: absolute;
             margin-left: 10px;
             color: #000000;
@@ -94,15 +94,15 @@
 
         <div class="m-cell">
             <div class="cell-item">
-                <div class="cell-left" id="username">手机号：</div>
+                <div class="cell-left">手机号：</div>
                 <div class="cell-right">
-                    <input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off" />
+                    <input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off" id="phone" />
                 </div>
             </div>
             <div class="cell-item">
-                <div class="cell-left" id="pwd">密码：</div>
+                <div class="cell-left">密码：</div>
                 <div class="cell-right">
-                    <input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off" />
+                    <input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off" id="pwd" />
                 </div>
             </div>
         </div>
@@ -139,20 +139,45 @@
         var signature = sha1(str); //签名 sha1加密
         var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
 
-        mui('#login')[0].addEventListener('tap', function () {
-            $.ajax({
-                url: pre_url + '&op=login',//登录 参数 mobile,password
-                type: 'post',
-                data: {
-                    moblie: phone,
-                    password: pwd,
-                },
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                success: function (mes) {
 
-                }
-            })
+        mui('#login')[0].addEventListener('tap', function () {
+            var phone = $('#phone').val();
+            var pwd = $('#pwd').val();
+
+            if (!phone) {
+                YDUI.dialog.alert('手机号不能为空！');
+                return false;
+            } else if (!pwd) {
+                YDUI.dialog.alert('密码不能为空!');
+                return false;
+            } else {
+                $.ajax({
+                    url: pre_url + '&op=login', //登录 参数 mobile,password
+                    type: 'get',
+                    data: {
+                        mobile: phone,
+                        password: pwd,
+                    },
+                    dataType: 'jsonp',
+                    success: function (mes) {
+                        console.log(mes)
+                        if (mes.status == 1) {
+                            localStorage.userinfo = JSON.stringify(mes);                        
+                            YDUI.dialog.alert('登陆成功!', function () {
+                                mui.openWindow({
+                                    url: '../index.html',
+                                    id: '../index.html'
+                                })
+                            });
+                        }
+                    }
+                })
+
+
+        
+            }
+
+
         })
     </script>
 </body>

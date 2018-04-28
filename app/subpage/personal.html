@@ -37,7 +37,7 @@
 
 		.appName {
 			height: 80px;
-			line-height: 100px;
+			/* line-height: 100px; */
 			position: absolute;
 			margin-left: 10px;
 			color: #000000;
@@ -119,21 +119,21 @@
 		</div> -->
 		<div class="m-cell">
 			<div class="cell-item">
-				<div class="cell-left" id="username">昵称：</div>
+				<div class="cell-left">昵称：</div>
 				<div class="cell-right">
-					<input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off" />
+					<input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off"  id="username" />
 				</div>
 			</div>
 			<div class="cell-item">
-				<div class="cell-left" id="pwd">密码：</div>
+				<div class="cell-left">密码：</div>
 				<div class="cell-right">
-					<input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off" />
+					<input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off"  id="pwd"/>
 				</div>
 			</div>
 			<div class="cell-item">
-				<div class="cell-left" id="repwd">确认密码：</div>
+				<div class="cell-left">确认密码：</div>
 				<div class="cell-right">
-					<input type="password" class="cell-input" placeholder="请再次输入密码" autocomplete="off" />
+					<input type="password" class="cell-input" placeholder="请再次输入密码" autocomplete="off"  id="repwd"/>
 				</div>
 			</div>
 			<div class="cell-item">
@@ -144,9 +144,9 @@
 				</div>
 			</div>
 			<div class="cell-item">
-				<div class="cell-left" id="yzm">验证码：</div>
+				<div class="cell-left" >验证码：</div>
 				<div class="cell-right">
-					<input type="text" class="cell-input" placeholder="请输入验证码" autocomplete="off" />
+					<input type="text" class="cell-input" placeholder="请输入验证码" autocomplete="off"  id="yzm"/>
 				</div>
 			</div>
 		</div>
@@ -161,18 +161,24 @@
 	</div>
 
 	<script src="../js/mui.min.js"></script>
-	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/JQ_1.js"></script>
+	<!-- <script src="../js/jquery-3.2.1.min.js"></script> -->
 	<script src="//static.ydcss.com/uploads/ydui/ydui.citys.js"></script>
 	<script src="../js/ydui.js"></script>
 	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 	<script>
 		$(function () {
+			var tmp = Date.parse(new Date()).toString();
+			var time = tmp.substr(0, 10); //发起请求时间
+			var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+			var signature = sha1(str); //签名 sha1加密
+			var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+			var yzmnum = '123';
 			var $getCode = $('#J_GetCode');
-
 			/* 定义参数 */
 			$getCode.sendCode({
 				disClass: 'btn-disabled',
-				secs: 15,
+				secs: 60,
 				run: false,
 				runStr: '{%s}秒后重新获取',
 				resetStr: '重新获取验证码'
@@ -183,14 +189,21 @@
 				if (isPhoneAvailable(phone)) {
 					/* ajax 成功发送验证码后调用【start】 */
 					YDUI.dialog.loading.open('发送中');
-					setTimeout(function () {
-
-						YDUI.dialog.loading.close();
-
-						$getCode.sendCode('start');
-						YDUI.dialog.toast('已发送', 'success', 1500);
-
-					}, 1500);
+					$.ajax({
+						type:'get',						
+						url: pre_url + '&op=get_duanxin', 
+						dataType: 'jsonp',
+						data:{
+							mobile:phone
+						},
+						success: function (mes) {
+							console.log(mes)
+							$getCode.sendCode('start');
+							window.yzmnum = mes.code;
+							window.yzmlasttime = mes.time;
+							YDUI.dialog.loading.close();
+						}
+					})
 				} else {
 					YDUI.dialog.alert('请填写正确手机号');
 				}
@@ -227,16 +240,29 @@
 
 
 		mui('#register')[0].addEventListener('tap', function () {
-			var nickname = $('#nickname').val();
+			var nickname = $('#username').val();
 			var pwd = $('#pwd').val();
 			var repwd = $('#repwd').val();
 			var phone = $('#phone').val();
 			var yzm = $('#yzm').val();
 
+			// 判断验证码是否过期
+			function iftimeout(){
+				var lasttime = window.yzmlasttime;
+				var now = Date.parse(new Date()).toString();
+				now = now.substr(0,10);
+				console.log(lasttime,now)
+				if(now > lasttime){
+					return true;
+				}else{
+					return false;
+				}
+			}
+
 			if (!nickname) {
 				YDUI.dialog.alert('请填写昵称!');
 				return false;
-			} else if (!pwd) {
+			}else if (!pwd) {
 				YDUI.dialog.alert('请填写密码!');
 				return false;
 			} else if (pwd != repwd) {
@@ -248,19 +274,32 @@
 			} else if (!yzm) {
 				YDUI.dialog.alert('请填写验证码!');
 				return false;
-			} else {
+			}else if(yzm != window.yzmnum || iftimeout()){
+				YDUI.dialog.alert('请填写正确验证码!');
+				return false;				
+			}else {
 				$.ajax({
 					url: pre_url + '&op=register', //注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
 					type: 'post',
 					data: {
-						moblie: phone,
+						mobile: phone,
 						password: pwd,
 						nickname: nickname
 					},
 					dataType: 'jsonp',
 					jsonp: 'callback',
 					success: function (mes) {
-
+						console.log(mes)
+						if(mes.status == 1){
+							YDUI.dialog.alert('注册成功！',function(){
+								mui.openWindow({
+									url: '../index.html', id: '../index.html',
+									styles: {
+										popGesture: 'close' // 'hide', 'close','none' 此处是关键
+									}
+								})
+							})						
+						}
 					}
 				})
 			}

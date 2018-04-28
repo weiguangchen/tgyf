@@ -13,8 +13,8 @@
 
 <body>
 	<div class="title">
-		<div class="fm_left menu-button" id="mbtn">
-			<img src="../img/cpl.png" />
+		<div class="fm_left mui-action-back mui-pull-left">
+			<img src="../img/fh.png" />
 		</div>
 		<div class="fm_middle">
 			<P>产品详情</P>
@@ -24,14 +24,53 @@
 		</div>
 	</div>
 	<div class="cpxq">
-		<img src="../img/qf_t.png" />
+		<div class="mui-scroll-wrapper" id="scroll1">
+			<div class="mui-scroll">
+				<img src="" alt="" id="proimg">
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <img src="../img/qf_t.png" />
 		<img src="../img/qf_t1.png" />
 		<img src="../img/fl.png" />
-		<div class="jia"></div>
-	</div>
+		<div class="jia"></div> -->
+	<script src="../js/JQ_1.js"></script>
+	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 	<script src="../js/mui.min.js"></script>
 	<script type="text/javascript">
-		mui.init()
+		$(function () {
+			mui('#scroll1').scroll();
+		})
+		//添加newId自定义事件监听
+		window.addEventListener('proId', function (event) {
+			//获得事件参数
+			var id = event.detail.id;
+			// var mes = event.detail.mes;
+			//根据id向服务器请求新闻详情
+			console.log(id)
+
+			var tmp = Date.parse(new Date()).toString();
+			var time = tmp.substr(0, 10); //发起请求时间
+			var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+			var signature = sha1(str); //签名 sha1加密
+			var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+			$.ajax({
+				url: pre_url + '&op=get_product_xq', //获取产品详情
+				type: 'get',
+				data: {
+					id: id
+				},
+				dataType: 'jsonp',
+				success: function (mes) {
+					console.log(mes.img)
+
+					$('#proimg').attr('src',mes.img)
+					
+				}
+			})
+		})
 	</script>
 </body>
 
