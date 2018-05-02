@@ -44,7 +44,10 @@
         <% for(var i=0;i<data.length;i++){ %>
             <li class="mui-table-view-cell mui-media" data-id='<%= data[i].object_id %>'>
                 <a href="javascript:;">
-                    <img class="mui-media-object mui-pull-left" src="<%= data[i].thumb %>">
+                    <% if(data[i].smeta.thumb != ''){%>
+                    <img class="mui-media-object mui-pull-left" src="<%= data[i].smeta.thumb %>">
+                    <% }else{ %>
+                    <% } %>
                     <div class="mui-media-body">
                         <%= data[i].post_title %>
                             <p class='mui-ellipsis'>
@@ -88,7 +91,7 @@
                         contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
                         callback: function () { //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
                             var _this = this;
-                            console.log(window.currentId)
+                            // console.log(window.currentId)
                             $.ajax({
                                 url: pre_url + '&op=get_news_list2', //获取文章数据 可带参数 pagesize:分页大小,p:页码
                                 type: 'get',
@@ -101,11 +104,13 @@
                                 success: function (mes) {
                                     // console.log(mes)
                                     // window.newsInfo = window.newsInfo.concat(mes.data);
+
                                     var newsItem = template('news', mes);
                                     $('#newslist').append(newsItem);
                                     _this.endPullupToRefresh(false);
-                                    console.log(mes.status)
+                                    // console.log(mes.status)
                                     page++;
+
                                     if (mes.status == 0) {
                                         console.log('没有新闻了')
                                         _this.endPullupToRefresh(true);
@@ -138,18 +143,22 @@
         }
         //添加newId自定义事件监听
         window.addEventListener('newsListId', function (event) {
-            // console.log(window.currentId)
-            // console.log(event.detail.id)
+            console.log('当前id:'+window.currentId)
+            console.log('id:'+event.detail.id)
             var id = event.detail.id;
+            console.log(event.detail.id != window.currentId)
             if(event.detail.id != window.currentId){
+                $('#newslist').html('');
                 window.currentId = event.detail.id;
                 page = 1;
                 mui('#mscroll').pullRefresh().refresh(true);
+
                 // console.log('id:'+id)
                 // console.log('page'+page)
                 // console.log('pagesize:'+pagesize)
                 // console.log('重新获取数据')
-                //获取文章列表            
+                //获取文章列表      
+
                 $.ajax({
                     url: pre_url + '&op=get_news_list2', 
                     type: 'get',
@@ -161,12 +170,15 @@
                     dataType: 'jsonp',
                     success: function (mes) {
                         // console.log(mes)
-                        console.log('mes.status:'+mes.status)
-                        // console.log('id:'+id)
-                        // console.log('page:'+page)
-                        var newsItem = template('news', mes);
-                        $('#newslist').html(newsItem);
-                        page++;
+                        if(mes.data.length > 0){
+                            var newsItem = template('news', mes);
+                            $('#newslist').html(newsItem);
+                            page++;
+                        }
+
+                        if(mes.status == 0){
+                            mui('#mscroll').pullRefresh().endPullupToRefresh(true);
+                        }
                     }
                 })
                 // 获取列表title

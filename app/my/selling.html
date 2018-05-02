@@ -38,7 +38,12 @@
 				</div>
 				<img src="../img/san.png" id="san" />
 			</div>
-			<div class="ncsjd"></div>
+			<div class="ncsjd">
+				<ul class="mui-table-view" id="gn">
+
+
+				</ul>
+			</div>
 		</div>
 		<div class="cop1">
 			<img src="../img/map.png" />
@@ -48,7 +53,12 @@
 				</div>
 				<img src="../img/san.png" id="san" />
 			</div>
-			<div class="ncsjd"></div>
+			<div class="ncsjd">
+				<ul class="mui-table-view" id="gj">
+
+
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div id="sucaihuo">
@@ -56,8 +66,33 @@
 	</div>
 	<script src="../js/mui.min.js"></script>
 	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/template-web.js"></script>
+	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 	<script src="../js/new_file.js"></script>
+	<script type="text/html" id="news-item">
+		<% for(var i=0;i<data.length;i++){ %>
+			<li class="mui-table-view-cell mui-media" data-id='<%= data[i].object_id %>'>
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="<%= data[i].smeta.thumb %>">
+					<div class="mui-media-body">
+						<%= data[i].post_title %>
+							<div class='news-item'>
+								<p>
+									<%= data[i].post_excerpt %>
+								</p>
+							</div>
+					</div>
+				</a>
+			</li>
+		<% } %>
+	</script>
 	<script>
+		var tmp = Date.parse(new Date()).toString();
+		var time = tmp.substr(0, 10); //发起请求时间
+		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+		var signature = sha1(str); //签名 sha1加密
+		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+
 		if (window.plus) {
 			plusReady();
 		} else {
@@ -86,8 +121,47 @@
 			});
 		})
 		$(function () {
-			$("#san").click(function () {
+
+			mui('#san')[0].addEventListener('tap', function () {
 				$(".ncsjd").fadeToggle(0);
+			})
+		})
+
+		$(function () {
+			$.ajax({
+				url: pre_url + '&op=get_news_list1', //获取新闻列表
+				type: 'get',
+				data: {
+					id: 15
+				},
+				dataType: 'jsonp',
+				success: function (mes) {
+					console.log(mes)
+					var info = {
+						data:mes
+					}
+					var tpl = template('news-item',info);
+					$('#gn').append(tpl)
+				}
+			})
+			$.ajax({
+				url: pre_url + '&op=get_news_list1', //获取新闻列表
+				type: 'get',
+				data: {
+					id: 16
+				},
+				dataType: 'jsonp',
+				success: function (mes) {
+					console.log(mes)
+					if(mes != '没有数据'){
+						var info = {
+							data:mes
+						}
+						var tpl = template('news-item',info);
+						$('#gn').append(tpl)
+					}
+					
+				}
 			})
 		})
 	</script>

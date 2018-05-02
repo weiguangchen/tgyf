@@ -42,12 +42,12 @@ mui('#menu-shfw')[0].addEventListener('tap', function () {
     });
 });
 mui('#menu-gzh')[0].addEventListener('tap', function () {
-    mui.openWindow({
-        url: 'subpage/industry.html', id: 'subpage/industry.html',
-        styles: {
-            popGesture: 'close' // 'hide', 'close','none' 此处是关键
-        }
-    });
+    // mui.openWindow({
+    //     url: 'subpage/industry.html', id: 'subpage/industry.html',
+    //     styles: {
+    //         popGesture: 'close' // 'hide', 'close','none' 此处是关键
+    //     }
+    // });
 });
 mui('#menu-hyyy')[0].addEventListener('tap', function () {
     mui.openWindow({
