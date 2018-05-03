@@ -503,6 +503,12 @@
 					styles: {
 						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
 					}
+				},{
+					id: './subpage/information.html',
+					url: './subpage/information.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
+					}
 				}],
 				pullRefresh: [
 					{
@@ -557,7 +563,7 @@
 										p:propage
 									},
 									success: function (mes) {
-										// console.log(mes)
+										console.log(mes)
 										promax = mes.cs;
 										var newsItem = template('pro-img', mes);
 										$('#pro').append(newsItem);
@@ -565,7 +571,6 @@
 										propage++	
 										if(propage>promax){
 											// console.log('没有产品了')
-											
 											_this.endPullupToRefresh(true);
 										}					
 									}
@@ -757,7 +762,7 @@
                 },
                 dataType: 'jsonp',
                 success: function (mes) {
-                    console.log(mes)
+                    // console.log(mes)
                     // var newsItem = template('news', mes);
                     // $('#newslist').append(newsItem);
                     // page++;
@@ -788,9 +793,9 @@
 					var moveX = $(this).position().left + $(this).parent().scrollLeft();
 					var pageX = document.documentElement.clientWidth;
 					var blockWidth = $(this).width();
-					console.log(moveX)
-					console.log(pageX);
-					console.log(blockWidth);
+					// console.log(moveX)
+					// console.log(pageX);
+					// console.log(blockWidth);
 					var left = moveX - (pageX / 2) + (blockWidth / 2);
 					$(this).css("color", "red").siblings().css("color", "#FFFFFF");
 					$(".cp-header ").scrollLeft(left);
@@ -798,18 +803,18 @@
 					propage = 1;
 					proCurrentId = id;
 					$('#pro').html('');
-
-					console.log('id:'+id);
-					console.log('pagesize:'+propagesize);
-					console.log('p:'+propage)
+					
+					// console.log('id:'+id);
+					// console.log('pagesize:'+propagesize);
+					// console.log('p:'+propage)
 
 					var data = {
 						pagesize:propagesize,
 						p:propage
 					}
-					if(id != 0){
+					if(proCurrentId != 0){
 						$.extend(data,{
-							id:id
+							tid:id
 						})
 					}
 
@@ -820,6 +825,7 @@
 						jsonp: 'callback',
 						data:data,
 						success: function (mes) {
+							console.log(mes)
 							promax = mes.cs;
 							var newsItem = template('pro-img', mes);
 							$('#pro').append(newsItem);

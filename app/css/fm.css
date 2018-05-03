@@ -193,15 +193,21 @@
 
 .nr {
 	width: 100%;
-	padding-top: 50px;
+	/* padding-top: 50px; */
+	padding-top: 44px;
 }
 
 .cop {
 	margin: 0;
-	padding-top: 50px;
+	/* padding-top: 44px; */
 	width: 100%;
 	height: auto;
 	display: none;
+	position: absolute;
+	top: 94px;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .tab {

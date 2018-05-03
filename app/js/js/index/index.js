@@ -84,21 +84,6 @@ mui('#tit').on('tap', 'span', function () {
     }
     $(this).addClass('select').siblings().removeClass('select');
     $('#con>div').eq(i).show().siblings().hide();
-
-    // 获取产品列表
-    $.ajax({
-        url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-        type: 'post',
-        dataType: 'jsonp',
-        jsonp: 'callback',
-        data: {
-            pagesize: propagesize,
-            p: propage
-        },
-        success: function success(mes) {
-            console.log(mes);
-        }
-    });
 });
 // 搜索框
 mui('.cp-header').on('tap', '.suo', function () {

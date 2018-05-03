@@ -83,7 +83,7 @@
 				<img src="../img/Picture copy.png" />
 				<P>荣誉证书</P>
 			</div>
-			<div class="xk" onclick="mui.openWindow({url:'../subpage/knowledge.html',id:'../subpage/knowledge.html',styles: {popGesture: 'close'}});">
+			<div class="xk" id="fmzs" data-id="4">
 				<img src="../img/Dashboard.png" />
 				<P>阀门知识</P>
 			</div>
@@ -97,36 +97,73 @@
 	</div>
 
 	<!-- Swiper JS -->
-	<script src="../js/swiper.js"></script>
+	<!-- <script src="../js/swiper.js"></script> -->
 	<script src="../js/mui.min.js"></script>
 	<script>
 		var menuButton = document.querySelector('.menu-button');
-		var swiper = new Swiper('.swiper-container', {
-			slidesPerView: 'auto',
-			initialSlide: 1,
-			resistanceRatio: 0,
-			slideToClickedSlide: true,
-			on: {
-				init: function () {
-					var slider = this;
-					menuButton.addEventListener('click', function () {
-						if (slider.activeIndex === 0) {
-							slider.slideNext();
-						} else {
-							slider.slidePrev();
-						}
-					}, true);
-				},
-				slideChange: function () {
-					var slider = this;
-					if (slider.activeIndex === 0) {
-						menuButton.classList.add('cross');
-					} else {
-						menuButton.classList.remove('cross');
+		// var swiper = new Swiper('.swiper-container', {
+		// 	slidesPerView: 'auto',
+		// 	initialSlide: 1,
+		// 	resistanceRatio: 0,
+		// 	slideToClickedSlide: true,
+		// 	on: {
+		// 		init: function () {
+		// 			var slider = this;
+		// 			menuButton.addEventListener('click', function () {
+		// 				if (slider.activeIndex === 0) {
+		// 					slider.slideNext();
+		// 				} else {
+		// 					slider.slidePrev();
+		// 				}
+		// 			}, true);
+		// 		},
+		// 		slideChange: function () {
+		// 			var slider = this;
+		// 			if (slider.activeIndex === 0) {
+		// 				menuButton.classList.add('cross');
+		// 			} else {
+		// 				menuButton.classList.remove('cross');
+		// 			}
+		// 		},
+		// 	}
+		// });
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+
+		function plusReady() {
+			mui.init({
+				preloadPages: [{
+					id: '../subpage/wenzList.html',
+					url: '../subpage/wenzList.html',
+					styles: {
+						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
 					}
-				},
-			}
-		});
+				}],
+			})
+			var newsListPage = null;
+			mui.ready(function(){
+				mui('.content').on('tap','#fmzs', function () {
+					var id = this.getAttribute('data-id');
+					//获得详情页面
+					if (!newsListPage) {
+						newsListPage = plus.webview.getWebviewById('../subpage/wenzList.html');
+					}
+					//触发详情页面的newsId事件
+					mui.fire(newsListPage, 'newsListId', {
+						id: id
+					});
+					//打开详情页面          
+					mui.openWindow({
+						id: '../subpage/wenzList.html',
+						
+					});
+				})	
+			})
+					
+		}
 	</script>
 </body>
 
