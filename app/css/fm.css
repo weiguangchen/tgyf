@@ -952,11 +952,12 @@
 .zs_left,
 .zs_right {
 	width: 3.5rem;
-	height: 3.5rem;
+	height: 3rem;
 	border: 1px solid #AAAAAA;
 	text-align: center;
 	font-size: .25rem;
 	position: relative;
+	margin-bottom: 1rem;
 }
 
 .zs_left {

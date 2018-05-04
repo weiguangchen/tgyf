@@ -512,7 +512,11 @@
 					"img/1.jpg",
 					"img/gs.png"
 				],
-				"priority": 12
+				"priority": 12,
+				"refer": [
+					"subpage/certificate.html",
+					"subpage/industry.html"
+				]
 			},
 			"my/regard.html": {
 				"href": "my/regard.html",
@@ -698,7 +702,13 @@
 					"my/serve.html",
 					"my/talents.html",
 					"my/new.html",
-					"my/classify.html"
+					"my/classify.html",
+					"subpage/information.html",
+					"subpage/ub.html",
+					"subpage/wenz.html",
+					"subpage/personal.html",
+					"subpage/sale.html",
+					"subpage/industry.html"
 				],
 				"priority": 0
 			},
@@ -713,6 +723,13 @@
 				],
 				"refer": [
 					"index.html"
+				],
+				"priority": 0
+			},
+			"subpage/industry.html": {
+				"resources": [],
+				"refer": [
+					"subpage/wenz.html"
 				],
 				"priority": 0
 			}

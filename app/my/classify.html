@@ -200,6 +200,17 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript">
+			if (window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+			function plusReady(){
+				mui.init({
+					swipeBack: true //启用右滑关闭功能
+				})
+			}
+		
 			$(function() {
 				$(".nav").on("click", function(ev) {
 					var moveX = $(this).position().left + $(this).parent().scrollLeft();

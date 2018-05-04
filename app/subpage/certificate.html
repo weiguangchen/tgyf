@@ -32,40 +32,82 @@
 	</div>
 	<div class="nr">
 		<div class="ryzs">
-			<div class="zs_left">
-				<img src="../img/z_2.png" class='imgZoom' style="z-index: 6;" />
+			<!-- <div class="zs_left">
+				<img src="../img/z_2.png" class='imgZoom' />
 				<P>质量管理体系认证证书</P>
-				<span>2017.05.23</span>
 			</div>
 			<div class="zs_right">
 				<img src="../img/z_1.png" class='imgZoom' />
 				<P>环境管理体系认证证书</P>
-				<span>2017.05.23</span>
 			</div>
-			<div class="c"></div>
-		</div>
-
-		<div class="ryzs">
 			<div class="zs_left">
 				<img src="../img/z_3.png" class='imgZoom' />
 				<P>质量管理体系认证证书</P>
-				<span>2017.05.23</span>
 			</div>
 			<div class="zs_right">
 				<img src="../img/z_4.png" class='imgZoom' />
 				<P>质量管理体系认证证书</P>
-				<span>2017.05.23</span>
-			</div>
-			<div class="c"></div>
+			</div> -->
+			<!-- <div class="c"></div> -->
 		</div>
 	</div>
 	<script src="../js/mui.min.js"></script>
 	<script src="../js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.imgZoom.js"></script>
 	<script type="text/javascript" src="../js/jquery.drag.js"></script>
-
+	<script src="../js/template-web.js"></script>
+	<script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
+	<script type="text/html"  id="img-box">
+		<% for(var i=0;i<data.length;i++){ %>
+			<% if(i%2 == 1){%>
+				<div class="zs_left">
+					<img src="<%= data[i].img %>" class='imgZoom'/>
+					<P style='margin-top:10px;'><%= data[i].title %></P>
+				</div>
+			<% }else{ %>
+				<div class="zs_right">
+					<img src="<%= data[i].img %>" class='imgZoom' />
+					<P style='margin-top:10px;'><%= data[i].title %></P>
+				</div>
+			<% } %>
+		<% } %>
+		<div class="c"></div> 
+	</script>
 	<script type="text/javascript">
-		$(".imgZoom").imgZoom();
+		var tmp = Date.parse(new Date()).toString();
+		var time = tmp.substr(0, 10); //发起请求时间
+		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
+		var signature = sha1(str); //签名 sha1加密
+		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+		$(function () {
+			$.ajax({
+				url: pre_url + '&op=get_ryzs', //获取荣誉证书
+				type: 'get',
+				dataType: 'jsonp',
+				success: function (mes) {
+					console.log(mes)
+					var info = {
+						data:mes
+					}
+					var tpl = template('img-box',info);
+					$('.ryzs').append(tpl);
+					$(".imgZoom").imgZoom();
+					
+				}
+			})
+		})
+
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+
+		function plusReady(){
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			})
+		}
 	</script>
 
 </body>

@@ -490,7 +490,7 @@
 		var signature = sha1(str); //签名 sha1加密
 		var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
 		function plusReady() {
-			var finit = mui.init({
+			mui.init({
 				preloadPages: [{
 					id: './subpage/wenz.html',
 					url: './subpage/wenz.html',
@@ -520,9 +520,11 @@
 							contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
 							callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
 								var _this = this;
+								
+
 								$.ajax({
 									url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-									type: 'post',
+									type: 'get',
 									dataType: 'jsonp',
 									jsonp: 'callback',
 									data:{
@@ -530,7 +532,8 @@
 										p:newspage
 									},
 									success: function (mes) {
-										// console.log(mes)
+										console.log(mes)
+										console.log(typeof mes)
 										// window.newsInfo = window.newsInfo.concat(mes.data);
 										var newsItem = template('news-item', mes);
 										$('#news').append(newsItem);
@@ -542,6 +545,8 @@
 										}	
 									}
 								})
+
+								
 							}
 						}
 					},
@@ -563,7 +568,7 @@
 										p:propage
 									},
 									success: function (mes) {
-										console.log(mes)
+										// console.log(mes)
 										promax = mes.cs;
 										var newsItem = template('pro-img', mes);
 										$('#pro').append(newsItem);
@@ -619,7 +624,31 @@
 					
 				});
 			})
-
+			
+			// mui.ready(function(){
+			// 	mui.ajax(pre_url + '&op=get_news_list',{
+			// 		type: 'get',
+			// 		// dataType: 'json',
+			// 		// headers:{'Content-Type':'application/json'},	
+			// 		// jsonp: 'callback',
+			// 		data:{
+			// 			pagesize:newspagesize,
+			// 			p:newspage,
+			// 		},
+			// 		success: function (mes) {
+			// 			console.log(mes)
+			// 			// window.newsInfo = mes.data;
+			// 			// var newsItem = template('news-item', mes);
+			// 			// $('#news').html(newsItem);
+			// 			// newspage++;
+			// 		},
+			// 		error:function(xhr,type,error){
+			// 			console.log('xhf'+xhr);
+			// 			console.log('type'+type);
+			// 			console.log('error'+error);
+			// 		}
+			// 	})
+			// })
 		}
 
 
@@ -736,15 +765,16 @@
 			// 获取新闻列表
 			$.ajax({
 				url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-				type: 'post',
+				type: 'get',
 				dataType: 'jsonp',
 				jsonp: 'callback',
 				data:{
 					pagesize:newspagesize,
-					p:newspage
+					p:newspage,
 				},
 				success: function (mes) {
-					// console.log(mes)
+					console.log(mes)
+					console.log(typeof mes)
 					// window.newsInfo = mes.data;
 					// var newsItem = template('news-item', mes);
 					// $('#news').html(newsItem);
@@ -790,6 +820,8 @@
 			mui('.cp-header').on('tap', '.nav', function () {
 				var id = $(this).attr('data-id');
 				if(proCurrentId != id){
+					mui('#index-scroll2').scroll().scrollTo(0,0,100)
+					
 					var moveX = $(this).position().left + $(this).parent().scrollLeft();
 					var pageX = document.documentElement.clientWidth;
 					var blockWidth = $(this).width();
@@ -825,7 +857,7 @@
 						jsonp: 'callback',
 						data:data,
 						success: function (mes) {
-							console.log(mes)
+							// console.log(mes)
 							promax = mes.cs;
 							var newsItem = template('pro-img', mes);
 							$('#pro').append(newsItem);
@@ -847,9 +879,9 @@
 				
 			})
 			// 初始化
-			mui('#index-scroll1').scroll();
-			mui('#index-scroll2').scroll();
-			mui('#index-scroll3').scroll();
+			// mui('#index-scroll1').scroll();
+			// mui('#index-scroll2').scroll();
+			// mui('#index-scroll3').scroll();
 			
 			ifLogin();
 		})

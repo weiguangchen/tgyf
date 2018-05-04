@@ -51,5 +51,17 @@
 	map.centerAndZoom(point, 15);
 	var infoWindow = new BMap.InfoWindow(sContent); // 创建信息窗口对象
 	map.openInfoWindow(infoWindow, point); //开启信息窗口
+	
+	if (window.plus) {
+		plusReady();
+	} else {
+		document.addEventListener("plusready", plusReady, false);
+	}
+
+	function plusReady(){
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		})
+	}
 </script>
 </script>
