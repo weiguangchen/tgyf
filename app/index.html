@@ -354,9 +354,9 @@
 							</div>
 
 							<div class='view-cell2'>
-								<div class="mui-scroll-wrapper" id="index-scroll2">
+								<div class="mui-scroll-wrapper mui-content" id="index-scroll2">
 									<div class="mui-scroll" id="pro-scroll">
-										<div class="fis_tu" style="width: 95%;height:100vh;margin:0.2rem auto;" id="pro">
+										<div class="fis_tu" style="overflow:hidden;" id="pro">
 										
 										</div>
 									</div>
@@ -365,7 +365,7 @@
 
 						</div>
 						<div class="view-cell">
-							<div class="mui-scroll-wrapper" id="index-scroll3">
+							<div class="mui-scroll-wrapper mui-content" id="index-scroll3">
 								<div class="mui-scroll" id="news-scroll">
 									<ul class="mui-table-view" id="news">
 										
@@ -417,8 +417,8 @@
 
 	<!-- <script src="js/swiper.js"></script> -->
 	<script src="js/mui.js"></script>
-	<!-- <script src="js/mui.pullToRefresh.js"></script>
-	<script src="js/mui.pullToRefresh.material.js"></script> -->
+	<script src="js/mui.pullToRefresh.js"></script>
+	<script src="js/mui.pullToRefresh.material.js"></script>
 	<script src="js/JQ_1.js"></script>
 	<script src="js/kk.js"></script>
 	<script src="js/js/menu.js"></script>
@@ -510,84 +510,90 @@
 						popGesture: 'hide' // 'hide', 'close','none' 此处是关键
 					}
 				}],
-				pullRefresh: [
-					{
-						container: '#index-scroll3', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
-						up: {
-							height: 50, //可选.默认50.触发上拉加载拖动距离
-							auto: true, //可选,默认false.自动上拉加载一次
-							contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
-							contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
-							callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
-								var _this = this;
+				// pullRefresh: [
+				// 	{
+				// 		container: '#index-scroll3', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+				// 		up: {
+				// 			height: 50, //可选.默认50.触发上拉加载拖动距离
+				// 			auto: true, //可选,默认false.自动上拉加载一次
+				// 			contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+				// 			contentnomore: '没有更多新闻了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+				// 			callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+				// 				var _this = this;
 								
 
-								$.ajax({
-									url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-									type: 'get',
-									dataType: 'jsonp',
-									jsonp: 'callback',
-									data:{
-										pagesize:newspagesize,
-										p:newspage
-									},
-									success: function (mes) {
-										console.log(mes)
-										console.log(typeof mes)
-										// window.newsInfo = window.newsInfo.concat(mes.data);
-										var newsItem = template('news-item', mes);
-										$('#news').append(newsItem);
-										_this.endPullupToRefresh(false);
-										newspage++;
-										if(mes.status == 0){
-											// console.log('没有新闻了')
-											_this.endPullupToRefresh(true);
-										}	
-									}
-								})
+				// 				$.ajax({
+				// 					url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+				// 					type: 'get',
+				// 					dataType: 'jsonp',
+				// 					data:{
+				// 						pagesize:newspagesize,
+				// 						p:newspage
+				// 					},
+				// 					success: function (mes) {
+				// 						// console.log(mes)
+				// 						// console.log(typeof mes)
+				// 						mes.data.map(function(item){
+				// 							console.log(item)
+				// 						})
+				// 						// window.newsInfo = window.newsInfo.concat(mes.data);
+				// 						var newsItem = template('news-item', mes);
+				// 						$('#news').append(newsItem);
+				// 						_this.endPullupToRefresh(false);
+				// 						newspage++;
+				// 						if(mes.status == 0){
+				// 							// console.log('没有新闻了')
+				// 							_this.endPullupToRefresh(true);
+				// 						}	
+				// 					},
+				// 					error:function(err){
+				// 						console.log(err)
+				// 					}
+				// 				})
 
 								
-							}
-						}
-					},
-					{
-						container: '#index-scroll2', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
-						up: {
-							height: 50, //可选.默认50.触发上拉加载拖动距离
-							auto: true, //可选,默认false.自动上拉加载一次
-							contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
-							contentnomore: '没有更多产品了', //可选，请求完毕若没有更多数据时显示的提醒内容；
-							callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
-								var _this = this;
-								$.ajax({
-									url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-									type: 'get',
-									dataType: 'jsonp',
-									data:{
-										pagesize:propagesize,
-										p:propage
-									},
-									success: function (mes) {
-										// console.log(mes)
-										promax = mes.cs;
-										var newsItem = template('pro-img', mes);
-										$('#pro').append(newsItem);
-										_this.endPullupToRefresh(false);
-										propage++	
-										if(propage>promax){
-											// console.log('没有产品了')
-											_this.endPullupToRefresh(true);
-										}					
-									}
-								})
-							}
-						}
-					}
-				]
+				// 			}
+				// 		}
+				// 	},
+				// 	{
+				// 		container: '#index-scroll2', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+				// 		up: {
+				// 			height: 50, //可选.默认50.触发上拉加载拖动距离
+				// 			auto: true, //可选,默认false.自动上拉加载一次
+				// 			contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+				// 			contentnomore: '没有更多产品了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+				// 			callback: function(){           //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+				// 				var _this = this;
+				// 				$.ajax({
+				// 					url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+				// 					type: 'get',
+				// 					dataType: 'jsonp',
+				// 					data:{
+				// 						pagesize:propagesize,
+				// 						p:propage
+				// 					},
+				// 					success: function (mes) {
+				// 						// console.log(mes)
+				// 						promax = mes.cs;
+				// 						var newsItem = template('pro-img', mes);
+				// 						$('#pro').append(newsItem);
+				// 						_this.endPullupToRefresh(false);
+				// 						propage++	
+				// 						if(propage>promax){
+				// 							// console.log('没有产品了')
+				// 							_this.endPullupToRefresh(true);
+				// 						}					
+				// 					}
+				// 				})
+				// 			}
+				// 		}
+				// 	}
+				// ]
 				
 			})
 			
 			var newsDetailPage = null,proDetailPage = null;
+
 
 			// 获取文章详情
 			mui('#news').on('tap', '.mui-media', function () {
@@ -625,6 +631,13 @@
 				});
 			})
 			
+			
+
+		
+
+			
+
+
 			// mui.ready(function(){
 			// 	mui.ajax(pre_url + '&op=get_news_list',{
 			// 		type: 'get',
@@ -657,6 +670,87 @@
 		
 
 		$(function () {
+			mui('.mui-scroll-wrapper').scroll();
+
+			// mui.ready(function(){
+				// var proScroll = document.querySelector
+				var pro_pullToRefresh = mui('#pro-scroll').pullToRefresh({
+					up: {
+						callback: function(){
+							var _this = this;
+							$.ajax({
+								url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+								type: 'get',
+								dataType: 'jsonp',
+								data:{
+									pagesize:propagesize,
+									p:propage
+								},
+								success: function (mes) {
+									// console.log(mes)
+									promax = mes.cs;
+									var newsItem = template('pro-img', mes);
+									$('#pro').append(newsItem);
+									_this.endPullUpToRefresh(false);
+									propage++	
+									if(propage>promax){
+										// console.log('没有产品了')
+										_this.endPullUpToRefresh(true);
+									}					
+								}
+							})
+						}, //上拉回调，必填；
+						auto: true, //自动执行一次上拉加载，可选；
+						show: true, //显示底部上拉加载提示信息，可选；
+						contentinit: '上拉显示更多产品', //可以上拉提示信息
+						contentdown: '上拉显示更多产品', //上拉结束提示信息
+						contentrefresh: '正在加载产品...', //上拉进行中提示信息
+						contentnomore: '没有更多产品了' //上拉无更多信息时提示信息
+					}
+				});
+				
+				var news_pullToRefresh = mui('#news-scroll').pullToRefresh({
+					up: {
+						callback: function(){
+							var _this = this;
+							$.ajax({
+								url: pre_url + '&op=get_news_list', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+								type: 'get',
+								dataType: 'jsonp',
+								data:{
+									pagesize:newspagesize,
+									p:newspage
+								},
+								success: function (mes) {
+									// console.log(mes)
+									// console.log(typeof mes)
+									mes.data.map(function(item){
+										console.log(item)
+									})
+									// window.newsInfo = window.newsInfo.concat(mes.data);
+									var newsItem = template('news-item', mes);
+									$('#news').append(newsItem);
+									_this.endPullUpToRefresh(false);
+									newspage++;
+									if(mes.status == 0){
+										// console.log('没有新闻了')
+										_this.endPullUpToRefresh(true);
+									}	
+								},
+								error:function(err){
+									console.log(err)
+								}
+							})
+						}, //上拉回调，必填；
+						auto: true, //自动执行一次上拉加载，可选；
+						show: true, //显示底部上拉加载提示信息，可选；
+						contentinit: '上拉显示更多新闻', //可以上拉提示信息
+						contentdown: '上拉显示更多新闻', //上拉结束提示信息
+						contentrefresh: '正在加载新闻...', //上拉进行中提示信息
+						contentnomore: '没有更多新闻了' //上拉无更多信息时提示信息
+					}
+				});
+			// })
 			// 初始化所有上拉加载
 			// var pro_pullToRefresh = mui('#pro-scroll').pullToRefresh({
 			// 	up:{
@@ -737,30 +831,30 @@
 				}
 			})
 			// 获取产品列表
-			$.ajax({
-				url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
-				type: 'post',
-				dataType: 'jsonp',
-				jsonp: 'callback',
-				data:{
-					id:2,
-					pagesize:10,
-					p:1
-				},
-				success: function (mes) {
-					// console.log(mes)
-					// promax = mes.cs;					
-					// window.proInfo = mes.data;					
-					// var newsItem = template('pro-img', mes);
-					// $('.fis_tu').html(newsItem);
-					// propage++;
-					// console.log(propage,promax)
-					// if(propage>promax){
-					// 	console.log(12313321)
-					// 	pro_pullToRefresh.setStopped(true);
-					// }
-				}
-			})
+			// $.ajax({
+			// 	url: pre_url + '&op=get_product', //获取文章数据 可带参数 pagesize:分页大小,p:页码
+			// 	type: 'post',
+			// 	dataType: 'jsonp',
+			// 	jsonp: 'callback',
+			// 	data:{
+			// 		id:2,
+			// 		pagesize:10,
+			// 		p:1
+			// 	},
+			// 	success: function (mes) {
+			// 		// console.log(mes)
+			// 		// promax = mes.cs;					
+			// 		// window.proInfo = mes.data;					
+			// 		// var newsItem = template('pro-img', mes);
+			// 		// $('.fis_tu').html(newsItem);
+			// 		// propage++;
+			// 		// console.log(propage,promax)
+			// 		// if(propage>promax){
+			// 		// 	console.log(12313321)
+			// 		// 	pro_pullToRefresh.setStopped(true);
+			// 		// }
+			// 	}
+			// })
 
 			// 获取新闻列表
 			$.ajax({
@@ -773,8 +867,8 @@
 					p:newspage,
 				},
 				success: function (mes) {
-					console.log(mes)
-					console.log(typeof mes)
+					// console.log(mes)
+					// console.log(typeof mes)
 					// window.newsInfo = mes.data;
 					// var newsItem = template('news-item', mes);
 					// $('#news').html(newsItem);

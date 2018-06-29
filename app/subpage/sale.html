@@ -23,7 +23,7 @@
 
 		</div>
 	</div>
-	<div class="nr">
+	<div class="nr" id="nr">
 		<div class="gcs list" id="gcs" data-id='3'>
 			<div class="gcs_tu">
 				<img src="../img/1.jpg" />
@@ -97,8 +97,9 @@
 				}],
 			})
 			var newsListPage = null;
+
 			// 获取文章列表
-			mui('.nr').on('tap', '.list', function () {
+			mui('#nr').on('tap', '.list', function () {
 				var id = this.getAttribute('data-id');
 				console.log(id)
 				
@@ -116,6 +117,7 @@
 					
 				});
 			})
+			
 			
 		}
 

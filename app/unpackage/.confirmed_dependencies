@@ -197,7 +197,9 @@
 			"img/xx.png",
 			"img/60x60.gif"
 		],
-		"refer": [],
+		"refer": [
+			"subpage/wenz.html"
+		],
 		"priority": 0
 	},
 	"subpage/personal.html": {
@@ -230,7 +232,8 @@
 		],
 		"refer": [
 			"subpage/certificate.html",
-			"subpage/industry.html"
+			"subpage/industry.html",
+			"subpage/wenzList.html"
 		],
 		"priority": 0
 	},
@@ -429,6 +432,11 @@
 		"priority": 0
 	},
 	"subpage/industry.html": {
+		"refer": [
+			"subpage/wenz.html"
+		]
+	},
+	"subpage/wenzList.html": {
 		"refer": [
 			"subpage/wenz.html"
 		]
