@@ -96,13 +96,13 @@
             <div class="cell-item">
                 <div class="cell-left">手机号：</div>
                 <div class="cell-right">
-                    <input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off" id="phone" />
+                    <input type="text" pattern="[0-9]*" class="cell-input" placeholder="请输入昵称" autocomplete="off" id="phone"  onclick="focus(this)"/>
                 </div>
             </div>
             <div class="cell-item">
                 <div class="cell-left">密码：</div>
                 <div class="cell-right">
-                    <input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off" id="pwd" />
+                    <input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off" id="pwd" onclick="focus(this)"/>
                 </div>
             </div>
         </div>
@@ -138,7 +138,11 @@
         var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
         var signature = sha1(str); //签名 sha1加密
         var pre_url = 'http://139.129.225.176/yfapi.php?s_time=' + time + '&signature=' + signature; //服务器请求地址
+        
 
+        function focus(t){
+            t.focus();
+        }
 
         mui('#login')[0].addEventListener('tap', function () {
             var phone = $('#phone').val();

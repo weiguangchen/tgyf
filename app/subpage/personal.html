@@ -77,76 +77,37 @@
 
 		</div>
 
-		<!-- <div class="grxx">
-			<div class="grxx_sr mui-input-row">
-				<span>昵称:</span>
-				<input type="text" placeholder="输入昵称" class="mui-input-clear" />
-			</div>
-			<div class="c"></div>
-			<div class="grxx_sr mui-input-row">
-				<span>手机:</span>
-				<input type="text" placeholder="输入手机号" class="mui-input-clear" />
-			</div>
-			<div class="c"></div>
-			<div class="grxx_sr mui-input-row">
-				<span>密码:</span>
-				<input type="password" placeholder="输入密码" class="mui-input-clear" />
-			</div>
-			<div class="c"></div>
-			<div class="grxx_sr mui-input-row">
-				<span>确认密码:</span>
-				<input type="password" placeholder="再次输入密码" class="mui-input-clear" />
-			</div>
-			<div class="c"></div>
-			<style>
-				.yzm{
-					display: inline-block;
-				}
-			</style>
-			<div class="grxx_sr mui-input-row">
-				<span>短信验证码:</span>
-				<input type="text" placeholder="请输入验证码" class="mui-input-clear" style="width:40%;"/>
-				<div class="yzm">
-					<button type="button" class="mui-btn mui-btn-warning">获取验证码</button>
-				</div>
-			</div>
-			<div class="c"></div>
-			<div class="grxx_sr mui-input-row">
-							<span>地址:</span>
-							<input type="text" readonly id="J_Address" placeholder="输入地址">
-						</div>
 
-		</div> -->
 		<div class="m-cell">
 			<div class="cell-item">
 				<div class="cell-left">昵称：</div>
 				<div class="cell-right">
-					<input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off"  id="username" />
+					<input type="text" class="cell-input" placeholder="请输入昵称" autocomplete="off" id="username"  onclick="focus(this)"/>
 				</div>
 			</div>
 			<div class="cell-item">
 				<div class="cell-left">密码：</div>
 				<div class="cell-right">
-					<input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off"  id="pwd"/>
+					<input type="password" class="cell-input" placeholder="请输入密码" autocomplete="off" id="pwd" onclick="focus(this)"/>
 				</div>
 			</div>
 			<div class="cell-item">
 				<div class="cell-left">确认密码：</div>
 				<div class="cell-right">
-					<input type="password" class="cell-input" placeholder="请再次输入密码" autocomplete="off"  id="repwd"/>
+					<input type="password" class="cell-input" placeholder="请再次输入密码" autocomplete="off" id="repwd" onclick="focus(this)"/>
 				</div>
 			</div>
 			<div class="cell-item">
 				<!-- <div class="cell-left" id="repwd">获取验证码：</div> -->
 				<div class="cell-right">
-					<input type="text" pattern="[0-9]*" class="cell-input" placeholder="请输入手机号" autocomplete="off" id="phone" />
+					<input type="text" pattern="[0-9]*" class="cell-input" placeholder="请输入手机号" autocomplete="off" id="phone" onclick="focus(this)"/>
 					<button type="button" class="btn btn-warning" id="J_GetCode">获取短信验证码</button>
 				</div>
 			</div>
 			<div class="cell-item">
-				<div class="cell-left" >验证码：</div>
+				<div class="cell-left">验证码：</div>
 				<div class="cell-right">
-					<input type="text" class="cell-input" placeholder="请输入验证码" autocomplete="off"  id="yzm"/>
+					<input type="text" class="cell-input" placeholder="请输入验证码" autocomplete="off" id="yzm" onclick="focus(this)"/>
 				</div>
 			</div>
 		</div>
@@ -159,7 +120,6 @@
 			<button style="width: 100%;height: .8rem;background: #c32126;color: #FFFFFF;border: none;border-radius:.1rem;">注册</button>
 		</div>
 	</div>
-
 	<script src="../js/mui.min.js"></script>
 	<script src="../js/JQ_1.js"></script>
 	<!-- <script src="../js/jquery-3.2.1.min.js"></script> -->
@@ -190,11 +150,11 @@
 					/* ajax 成功发送验证码后调用【start】 */
 					YDUI.dialog.loading.open('发送中');
 					$.ajax({
-						type:'get',						
-						url: pre_url + '&op=get_duanxin', 
+						type: 'get',
+						url: pre_url + '&op=get_duanxin',
 						dataType: 'jsonp',
-						data:{
-							mobile:phone
+						data: {
+							mobile: phone
 						},
 						success: function (mes) {
 							console.log(mes)
@@ -210,6 +170,10 @@
 
 			});
 		})
+		
+		function focus(t){
+			t.focus();
+		}
 
 		function isPhoneAvailable($poneInput) {
 			var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
@@ -219,7 +183,7 @@
 				return true;
 			}
 		}
-
+		
 		var tmp = Date.parse(new Date()).toString();
 		var time = tmp.substr(0, 10); //发起请求时间
 		var str = 'app=liuhetianchuang&key=tangguyifa&time=' + time; //签名字符串
@@ -247,14 +211,14 @@
 			var yzm = $('#yzm').val();
 
 			// 判断验证码是否过期
-			function iftimeout(){
+			function iftimeout() {
 				var lasttime = window.yzmlasttime;
 				var now = Date.parse(new Date()).toString();
-				now = now.substr(0,10);
-				console.log(lasttime,now)
-				if(now > lasttime){
+				now = now.substr(0, 10);
+				console.log(lasttime, now)
+				if (now > lasttime) {
 					return true;
-				}else{
+				} else {
 					return false;
 				}
 			}
@@ -262,7 +226,7 @@
 			if (!nickname) {
 				YDUI.dialog.alert('请填写昵称!');
 				return false;
-			}else if (!pwd) {
+			} else if (!pwd) {
 				YDUI.dialog.alert('请填写密码!');
 				return false;
 			} else if (pwd != repwd) {
@@ -274,10 +238,10 @@
 			} else if (!yzm) {
 				YDUI.dialog.alert('请填写验证码!');
 				return false;
-			}else if(yzm != window.yzmnum || iftimeout()){
+			} else if (yzm != window.yzmnum || iftimeout()) {
 				YDUI.dialog.alert('请填写正确验证码!');
-				return false;				
-			}else {
+				return false;
+			} else {
 				$.ajax({
 					url: pre_url + '&op=register', //注册 参数 mobile,password,nickname, data:{mobile:18222939311,password:111111,nickname:'哈哈哈哈哈'},
 					type: 'post',
@@ -290,15 +254,16 @@
 					jsonp: 'callback',
 					success: function (mes) {
 						console.log(mes)
-						if(mes.status == 1){
-							YDUI.dialog.alert('注册成功！',function(){
+						if (mes.status == 1) {
+							YDUI.dialog.alert('注册成功！', function () {
 								mui.openWindow({
-									url: '../index.html', id: '../index.html',
+									url: '../index.html',
+									id: '../index.html',
 									styles: {
 										popGesture: 'close' // 'hide', 'close','none' 此处是关键
 									}
 								})
-							})						
+							})
 						}
 					}
 				})
